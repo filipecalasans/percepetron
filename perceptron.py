@@ -98,8 +98,9 @@ def train_and_test_and(filename):
   dataset = np.loadtxt(open(filename, "rb"), delimiter=" ")
   
   print("DataSet: {}".format(dataset))
+  dimension = dataset.shape[1]
 
-  p = Percepetron(2)
+  p = Percepetron(dimension)
   p.train(dataset)
 
   a = 0
