@@ -179,7 +179,7 @@ Notice, from vectorial calculus that:
 
 The Learning Equations can be re-written as:
 
-<p align="center"><img src="/tex/e611156fb5bcb0c629578562e5315d77.svg?invert_in_darkmode&sanitize=true" align=middle width=390.9869601pt height=237.81372119999997pt/></p>
+<p align="center"><img src="/tex/54991417e14ea6253334d2e87b8c70e9.svg?invert_in_darkmode&sanitize=true" align=middle width=349.51878554999996pt height=98.63111444999998pt/></p>
 
 
 <p align="center"><img src="/tex/6038e154ccad851b48acbbfdfea23a56.svg?invert_in_darkmode&sanitize=true" align=middle width=236.50666710000002pt height=19.726228499999998pt/></p>
