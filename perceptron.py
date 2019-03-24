@@ -14,7 +14,9 @@ def df_sigmoid(x):
 class Percepetron:
     
   def __init__(self, input_size, eta=0.01, threshold=1e-3):
-    # Generate randomly
+    """
+      Generate the random initial weights
+    """
     self.w = np.random.uniform([-1, 1, input_size+1])
     self.fnet = np.vectorize(f_sigmoid)
     self.dfnet = np.vectorize(df_sigmoid) 
@@ -26,20 +28,15 @@ class Percepetron:
     pass
 
   def train(self, dataset):
-    """
-      Training Equations
-      w_1(t+1) = w_1(t) + 2*eta*(y-sigma(a))*sigma'_{w1}(a)
-      w_2(t+1) = w_2(t) + 2*eta*(y-sigma(a))*sigma'_{w2}(a)
-      b(t+1) = b(t) + 2*eta*(y-sigma(a))
-    """
-
+    
     print("Training ...")
 
     # dataset = [ [x1_1, x1_2, ..., x1_n, y1],
     #             [x2_1, x2_2, ..., x2_n, y2], 
-    #             ...
+    #             ... ]
     n = dataset.shape[0]
-    
+    iteration = 0
+
     while True:
       
       self.sqerror = 0.0
@@ -52,38 +49,42 @@ class Percepetron:
 
       if (self.sqerror/n) < self.threshold:
         break
+      if iteration > 50000:
+         break
 
     print("Training Done...")
 
   def apply_learning_equation(self, dataset):
-    
+    """
+      Training Equations
+      w_1(t+1) = w_1(t) + 2*eta*(y-sigma(net))*sigma'_{w1}(net)
+      w_2(t+1) = w_2(t) + 2*eta*(y-sigma(net))*sigma'_{w2}(net)
+      b(t+1) = b(t) + 2*eta*(y-sigma(net))
+      sigma(net) = fnet(net)
+      sigma'(net) = dfnet(net)
+    """
     col = dataset.shape[0]
 
-    # [x1, x2, ..., xn, 1]
+    # dataset = [x1, x2, ..., xn, Y]
+    # x = [x1, x2, ..., xn, 1]
+    # y = [Y]
     x = np.append(dataset[:-1], 1)
     y = dataset[-1]
 
+    # Transpose X, Y
     x = x.T
     y = y.T
 
     net = np.matmul(self.w, x)
 
-    # print("X:{}, net: {} ".format(x, net))
-
     y_o = self.fnet(net)
     error = y - y_o
     
     self.sqerror += np.linalg.norm(error)**2
-    
-    # print("Y:{}, Yo: {}, error = {}, error^2:{} ".format(y, y_o, error, self.sqerror))
+    delta = 2*error*self.dfnet(x)
 
-    dE2 = 2*error*self.dfnet(x)
-
-    self.w[:-1] += (2.0*self.eta * dE2[:-1])
-    self.w[-1] += (2.0*self.eta * error)
-    # print("W(t): {}", self.w)
-
-    # print("dE2: {}".format(dE2))
+    self.w[:-1] += (2.0*self.eta*delta[:-1])
+    self.w[-1] += (2.0*self.eta*error)
 
   def test(self, x):
     y = np.matmul(self.w, np.append(x,1))

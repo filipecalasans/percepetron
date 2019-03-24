@@ -310,3 +310,144 @@ $$
 
 ## Implementation
 
+We are going to use the library Numpy to implement the matrix operation in Python.
+
+### Implementation details
+
+We are going to use a slightly different activation function, in order to our example to converge.
+
+```py
+def f_sigmoid(x):
+    """The sigmoid function."""
+    return 10.0/(10.0+math.exp(-x))
+
+def df_sigmoid(x):
+    """Derivative of the sigmoid function."""
+    return f_sigmoid(x)*(10.0-f_sigmoid(x))
+```
+
+We define a class *Perceptron* with the following parameters:
+
+```py
+class Percepetron:
+    
+  def __init__(self, input_size, eta=0.01, threshold=1e-3):
+    """
+      Generate the random initial weights
+    """
+    self.w = np.random.uniform([-1, 1, input_size+1])
+    self.fnet = np.vectorize(f_sigmoid)
+    self.dfnet = np.vectorize(df_sigmoid) 
+    self.eta = eta
+    # Minimum error before stopping training
+    self.threshold = threshold
+    # Current squarer of error
+    self.sqerror = 0
+```
+
+Notice that we generate a initial set of random weights in the interval $[-1,1]$. We also store the weights and bais in the same array, in order to optimize calculation. The array $W$ is given by $W=<w1, w2, b>$. Additionally, we also utilize the function *vectorize* in *numpy* to call the functions *fnet* and *dfnet* for each element in the vector.
+
+```py
+class Percepetron:
+
+   """
+      ...
+   """
+
+    def apply_learning_equation(self, dataset):
+    """
+      Training Equations
+      w_1(t+1) = w_1(t) + 2*eta*(y-sigma(net))*sigma'_{w1}(net)
+      w_2(t+1) = w_2(t) + 2*eta*(y-sigma(net))*sigma'_{w2}(net)
+      b(t+1) = b(t) + 2*eta*(y-sigma(net))
+      sigma(net) = fnet(net)
+      sigma'(net) = dfnet(net)
+    """
+    col = dataset.shape[0]
+
+    # dataset = [x1, x2, ..., xn, Y]
+    # x = [x1, x2, ..., xn, 1]
+    # y = [Y]
+    x = np.append(dataset[:-1], 1)
+    y = dataset[-1]
+
+    # Transpose X, Y
+    x = x.T
+    y = y.T
+
+    net = np.matmul(self.w, x)
+
+    y_o = self.fnet(net)
+    error = y - y_o
+    
+    self.sqerror += np.linalg.norm(error)**2
+    delta = 2*error*self.dfnet(x)
+
+    self.w[:-1] += (2.0*self.eta*delta[:-1])
+    self.w[-1] += (2.0*self.eta*error)
+```
+
+The function *apply_learning_equation* receives as argument an example from the dataset as $dataset=<x1, x2, y>$ and updates the weights and bias. This is done repeatedly until the
+minimum error or a maximum number of iterations is reached. We monitor the square error to know if the training is working.
+
+```py
+def train(self, dataset):
+    
+    print("Training ...")
+
+    # dataset = [ [x1_1, x1_2, ..., x1_n, y1],
+    #             [x2_1, x2_2, ..., x2_n, y2], 
+    #             ...
+    n = dataset.shape[0]
+    iteration = 0
+
+    while True:
+      iteration += 1
+      self.sqerror = 0.0
+      np.apply_along_axis(self.apply_learning_equation, axis=1, arr=dataset)
+      if (self.sqerror/n) < self.threshold:
+        break
+      if iteration > 50000:
+         break
+```
+
+## Example
+
+We are going to validate the implementation training the Perceptron to learn the logic *OR*. The examples are provided in the file **OR.dat**.
+
+```py
+def train_and_test_and(filename):
+
+  dataset = np.loadtxt(open(filename, "rb"), delimiter=" ")
+  
+  print("DataSet: {}".format(dataset))
+  dimension = dataset.shape[1]
+
+  p = Percepetron(dimension)
+  p.train(dataset)
+
+  a = 0
+  b = 0
+  print("{} OR {}: {}".format(a,b, p.test(np.array([a, b]))))
+
+  a = 0
+  b = 1
+  print("{} OR {}: {}".format(a,b, p.test(np.array([a, b]))))
+
+  a = 1
+  b = 0
+  print("{} OR {}: {}".format(a,b, p.test(np.array([a, b]))))
+
+  a = 1
+  b = 1
+  print("{} OR {}: {}".format(a,b, p.test(np.array([a, b]))))
+
+if __name__ == "__main__":
+  train_and_test_and("OR.dat")
+```
+
+You can try to train using different datasets as a challenge. We provide the logic *AND* in the file **AND.dat**. Bare in mind that the problem must be linearly separable. 
+
+**Challenge:** Try to train the *Perceptron* to learn the logic *XOR* and verify if the dataset is linearly separable.
+
+**Challenge 2:** Tune the parameters *Activation Function* and *eta*, so the training converges faster. 
