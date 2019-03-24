@@ -95,7 +95,8 @@ Learning Equations:
 
 The key part to understand the next step is to remember the **Chain Rule Derivative**, which is given by:
 
-<!-- <p align="center"><img src="/tex/ee21a624a5b7ac85f8c635003285aa7c.svg?invert_in_darkmode&sanitize=true" align=middle width=371.59819454999996pt height=54.16971449999999pt/></p> -->
+<!-- <p align="center"><img src="/tex/3cdba63ed7ddceb3222c779f2bf511a8.svg?invert_in_darkmode&sanitize=true" align=middle width=346.94066054999996pt height=42.37444365pt/></p> -->
+<img src="/tex/1c0a0c938c1cfceae74e0da6cb7dd099.svg?invert_in_darkmode&sanitize=true" align=middle width=139.85085015pt height=33.20539859999999pt/>
 
 Applying <img src="/tex/a1fe456628ef54c400febb4c43522cc5.svg?invert_in_darkmode&sanitize=true" align=middle width=21.00464354999999pt height=24.65753399999998pt/> in <img src="/tex/ba5fe1a447c2f0050fee52d1db3dda81.svg?invert_in_darkmode&sanitize=true" align=middle width=29.22385289999999pt height=24.65753399999998pt/>, we have:
 
