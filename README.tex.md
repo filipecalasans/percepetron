@@ -73,7 +73,7 @@ $$w_i(t+1) = w_i(t) - \eta\frac{\partial C}{\partial w_i} :(7)$$
 
 $$b_i(t+1) = b_i(t) - \eta\frac{\partial C}{\partial b_i} :(8)$$
 
-These two equations tell that every interaction of the algorithm we must update the weights and biases by a fraction *$\eta$* of the partial derivative, but in the opposite direction. That makes $C(w,b)$ to advance towards a local minimum. It turns out that a function can have multiples minimums, and depending of the initial values we may be trapped on a local minimum, instead of a global one. There are some techniques to mitigate that, however it beyond the scope of this article.
+These two equations tell that every interaction of the algorithm we must update the weights and biases by a fraction *$\eta$* of the partial derivative, but in the opposite direction. That makes $C(w,b)$ to advance towards a local minimum. It turns out that a function can have multiples minimums, and depending of the initial values we may be trapped on a local minimum, instead of a global one. There are some techniques to mitigate that, however it is beyond the scope of this article.
 
 ## Formulating the Perceptron
 
@@ -101,11 +101,11 @@ Applying $(10)$ in $(12)$, we have:
 
 $$w_i(t+1) = w_i(t) - \eta\frac{\partial }{\partial w_i}[(y-ŷ)^2] :(14)$$
 
-Let's call the derivative of $D$:
+Let's call the derivative $D$:
 
 $$D = \frac{\partial }{\partial w_i}[(y-ŷ)^2)] = \frac{\partial }{\partial w_i}[(y-\sigma(w))^2] :(15)$$
 
-If you notice, we have written $D$ on a way that it would be evident the **Chain Rule**.
+If you notice, we have written $D$ on a way that it is evident the **Chain Rule**.
 
 Let's call $y-\sigma(w) = g(w)$.
 
