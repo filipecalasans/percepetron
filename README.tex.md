@@ -158,10 +158,10 @@ NOTE: The sigmoid is easily differentiable using **Chain Rule**, this is also on
 
 The aspect that I had difficult the most when I tried to implement NNs in Python was to translate the equations to matrix representation. Sure, we could iterate over each index and calculate one weight per iteration. However, we would be limiting ourself. The main reason we should use matrix representation is because the numeric libraries are optimized for matrix representation. Moreover, they try to take advantage of hardware optimization when possible.
 
-Let's re-write the equations we have learned so far on matrix representation. First we will work with a particular example (3 inputs, 1 output) so you can visualize the dimensions, then we will write the algebraic notation generalizing this particular case.
+Let's re-write the equations we have learned so far on matrix representation. First we will work with a particular example $(3 inputs, 1 output)$, so you can visualize the dimensions, then we will write the algebraic notation generalizing this particular case.
 
 $$
-X = \begin{bmatrix}
+(26): X = \begin{bmatrix}
 x_1 \\
 x_2 \\
 x_3 \\
@@ -184,14 +184,12 @@ a_1 \\
 Ŷ =\begin{bmatrix}
 y_1 \\
 \end{bmatrix}
-
-:(26)
 $$
 
 Output $A$ of the Neuron is given by:
 
 $$
-\begin{bmatrix}
+(27): \begin{bmatrix}
 a_1 \\
 \end{bmatrix}
 = 
@@ -207,8 +205,6 @@ x_3 \\
 \begin{bmatrix}
 b \\
 \end{bmatrix}
-
-:(27)
 $$
 
 $$
@@ -217,22 +213,20 @@ $$
 
 After applying the **Activation Function**, we have:
 $$
-Z = 
+(29): Z = 
 \begin{bmatrix}
 \sigma(a1) \\
 \end{bmatrix}
-
-:(29)
 $$
 
 $$
 Algebraic: Z = \sigma(A) :(30)
 $$
 
-Notice, from vectorial calculus that$:
+Notice, from vectorial calculus that:
 
 $$
-\frac{\partial Z}{\partial w_i} = 
+(31): \frac{\partial Z}{\partial w_i} = 
 \begin{bmatrix}
 \frac{\partial Z}{\partial w1} \\
 \\
@@ -248,13 +242,12 @@ $$
 \\
 \sigma'_{w3}(z)
 \end{bmatrix}
-:(31)
 $$
 
 The Learning Equations can be re-written as:
 
 $$
-\begin{bmatrix}
+(32): \begin{bmatrix}
 w_1(t+1) \\
 w_2(t+1) \\
 w_3(t+1) \\
@@ -279,13 +272,11 @@ y1 - ŷ1
 \\
 \sigma'_{w3}(z)
 \end{bmatrix}
-
-:(32)
 $$
 
 
 $$
-\begin{bmatrix}
+(33): \begin{bmatrix}
 b(t+1) \\
 \end{bmatrix}
 =
@@ -296,8 +287,6 @@ b(t) \\
 \begin{bmatrix}
 y1 - ŷ1
 \end{bmatrix}
-
-:(33)
 $$
 
 $$
