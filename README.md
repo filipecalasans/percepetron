@@ -142,7 +142,7 @@ We have now the two Learning Equations that we can use to implement the algorith
 
 ## Choosing the Activation Function
 
-We are interested on finding an ** Activation Function ** that looks like a step function, but at the same time is continuous and differentiable in <img src="/tex/990b257e0959fef263bdbc9a4515b170.svg?invert_in_darkmode&sanitize=true" align=middle width=111.67792184999999pt height=19.1781018pt/>. Sigmoid, also called logistic function, is one of the widely used functions due to having these properties.
+We are interested on finding an **Activation Function** that looks like a step function, but at the same time is continuous and differentiable in <img src="/tex/990b257e0959fef263bdbc9a4515b170.svg?invert_in_darkmode&sanitize=true" align=middle width=111.67792184999999pt height=19.1781018pt/>. Sigmoid, also called logistic function, is one of the widely used functions due to having these properties.
 
 Sigmoid function is given by:
 
@@ -150,15 +150,15 @@ Sigmoid function is given by:
 
 With the following derivative:
 
-<p align="center"><img src="/tex/aae2da074431c70f8f26647cd89fb488.svg?invert_in_darkmode&sanitize=true" align=middle width=202.42564814999997pt height=16.438356pt/></p>
+<p align="center"><img src="/tex/79fa85e82c7f1837c231a8ada327261e.svg?invert_in_darkmode&sanitize=true" align=middle width=207.03752355pt height=17.2895712pt/></p>
 
 NOTE: The sigmoid is easily differentiable using **Chain Rule**, this is also one of the reasons for its popularity. You can google it if you are curious how to calculate the derivative.
 
 ## Notes on Matrix Representation
 
-The aspect that I had difficult the most when I tried to implement NNs in Python was to translate the equations to matrix representation. Sure, we could iterate over each index and calculate one weight per iteration. However, we would be limiting ourself. The main reason we should use matrix representation is because the numeric libraries we use are optimized for matrix representation, and they are that way for one reason. They try to take advantage of hardware optimization implemented to operate over matrices.
+The aspect that I had difficult the most when I tried to implement NNs in Python was to translate the equations to matrix representation. Sure, we could iterate over each index and calculate one weight per iteration. However, we would be limiting ourself. The main reason we should use matrix representation is because the numeric libraries are optimized for matrix representation. Moreover, they try to take advantage of hardware optimization when possible.
 
-Let's re-write the equations we have learned so far to matrix representation. First we will work with a particular example (3 inputs, 1 output) so you can visualize the dimensions, then we will write the algebrc notation generalizing this particular case.
+Let's re-write the equations we have learned so far on matrix representation. First we will work with a particular example (3 inputs, 1 output) so you can visualize the dimensions, then we will write the algebraic notation generalizing this particular case.
 
 <p align="center"><img src="/tex/d67786ca2c705b30eebe44fa14f81bc0.svg?invert_in_darkmode&sanitize=true" align=middle width=515.8306576499999pt height=87.12385769999999pt/></p>
 
@@ -166,14 +166,14 @@ Output <img src="/tex/53d147e7f3fe6e47ee05b88b166bd3f6.svg?invert_in_darkmode&sa
 
 <p align="center"><img src="/tex/58b1665b08830a34dd4f2905fd688d01.svg?invert_in_darkmode&sanitize=true" align=middle width=444.4573633499999pt height=87.12385769999999pt/></p>
 
-<p align="center"><img src="/tex/80cb069845c3195ed5c2a58fcbba01c2.svg?invert_in_darkmode&sanitize=true" align=middle width=228.67065705pt height=18.7598829pt/></p>
+<p align="center"><img src="/tex/e18af9b7380108f9969f163a1b874dfd.svg?invert_in_darkmode&sanitize=true" align=middle width=237.35981114999998pt height=18.7598829pt/></p>
 
 After applying the **Activation Function**, we have:
 <p align="center"><img src="/tex/2b20f5364751f531991e546a5019665c.svg?invert_in_darkmode&sanitize=true" align=middle width=369.32456714999995pt height=47.671326449999995pt/></p>
 
-<p align="center"><img src="/tex/a190bde562fd7776eeec3c2577f4a093.svg?invert_in_darkmode&sanitize=true" align=middle width=187.3791282pt height=16.438356pt/></p>
+<p align="center"><img src="/tex/b0555c9199390d80ab1829bbeaac193c.svg?invert_in_darkmode&sanitize=true" align=middle width=196.0682823pt height=16.438356pt/></p>
 
-Notice, from vectorial calculus that<img src="/tex/1ed5a3d62c832e552de9c6a97fd94368.svg?invert_in_darkmode&sanitize=true" align=middle width=4.5662248499999905pt height=14.15524440000002pt/><img src="/tex/241717213edf9b4dd11462504914382e.svg?invert_in_darkmode&sanitize=true" align=middle width=230.7953439pt height=108.81435509999997pt/><img src="/tex/7260bca04aa8e5283d80f1e2160799a3.svg?invert_in_darkmode&sanitize=true" align=middle width=316.75883415pt height=45.84475499999998pt/><img src="/tex/9523173ce7b9aa2f601b8be906e63841.svg?invert_in_darkmode&sanitize=true" align=middle width=173.33356755pt height=424.6679382pt/><img src="/tex/e2b487b35b0841cd839c4729265b2e0c.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/1b88d9f1907346c74b3277745942a9ca.svg?invert_in_darkmode&sanitize=true" align=middle width=240.15965160000002pt height=47.67123239999998pt/><img src="/tex/51709c221bb606c7f0a6193f462db8dd.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/5abd07422787ee57bbbe3353648bf2f3.svg?invert_in_darkmode&sanitize=true" align=middle width=334.37314185pt height=31.141535699999984pt/><img src="/tex/51709c221bb606c7f0a6193f462db8dd.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/d17953d8f34eb079ec0d4d6f12320985.svg?invert_in_darkmode&sanitize=true" align=middle width=285.63444525pt height=31.141535699999984pt/><img src="/tex/f7210cb22848ba23de46b8b2f69539f6.svg?invert_in_darkmode&sanitize=true" align=middle width=1745.1198203999998pt height=407.68950419999993pt/>[-1,1]<img src="/tex/0b8d47d6dc0885378abe69397b83f39d.svg?invert_in_darkmode&sanitize=true" align=middle width=648.8419607999999pt height=22.831056599999986pt/>W<img src="/tex/863df2b8dcb93d7bf8d96edf1d0184ee.svg?invert_in_darkmode&sanitize=true" align=middle width=69.24516719999998pt height=22.831056599999986pt/>W=<w1, w2, b><img src="/tex/f1f05ab33e9bd337f5a8f67fd3e22fc0.svg?invert_in_darkmode&sanitize=true" align=middle width=700.50259125pt height=598.1735232000001pt/>dataset=<x1, x2, y>$ and updates the weights and bias. This is done repeatedly until the
+Notice, from vectorial calculus that<img src="/tex/1ed5a3d62c832e552de9c6a97fd94368.svg?invert_in_darkmode&sanitize=true" align=middle width=4.5662248499999905pt height=14.15524440000002pt/><img src="/tex/241717213edf9b4dd11462504914382e.svg?invert_in_darkmode&sanitize=true" align=middle width=230.7953439pt height=108.81435509999997pt/><img src="/tex/7260bca04aa8e5283d80f1e2160799a3.svg?invert_in_darkmode&sanitize=true" align=middle width=316.75883415pt height=45.84475499999998pt/><img src="/tex/9523173ce7b9aa2f601b8be906e63841.svg?invert_in_darkmode&sanitize=true" align=middle width=173.33356755pt height=424.6679382pt/><img src="/tex/e2b487b35b0841cd839c4729265b2e0c.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/1b88d9f1907346c74b3277745942a9ca.svg?invert_in_darkmode&sanitize=true" align=middle width=240.15965160000002pt height=47.67123239999998pt/><img src="/tex/51709c221bb606c7f0a6193f462db8dd.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/b0c306eae23794a4007e332af4abdf73.svg?invert_in_darkmode&sanitize=true" align=middle width=343.06229594999996pt height=31.141535699999984pt/><img src="/tex/51709c221bb606c7f0a6193f462db8dd.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/30c59e7356f0aa989f7a94cf57e8ecaa.svg?invert_in_darkmode&sanitize=true" align=middle width=294.32359934999994pt height=31.141535699999984pt/><img src="/tex/f7210cb22848ba23de46b8b2f69539f6.svg?invert_in_darkmode&sanitize=true" align=middle width=1745.1198203999998pt height=407.68950419999993pt/>[-1,1]<img src="/tex/0b8d47d6dc0885378abe69397b83f39d.svg?invert_in_darkmode&sanitize=true" align=middle width=648.8419607999999pt height=22.831056599999986pt/>W<img src="/tex/863df2b8dcb93d7bf8d96edf1d0184ee.svg?invert_in_darkmode&sanitize=true" align=middle width=69.24516719999998pt height=22.831056599999986pt/>W=<w1, w2, b><img src="/tex/f1f05ab33e9bd337f5a8f67fd3e22fc0.svg?invert_in_darkmode&sanitize=true" align=middle width=700.50259125pt height=598.1735232000001pt/>dataset=<x1, x2, y>$ and updates the weights and bias. This is done repeatedly until the
 minimum error or a maximum number of iterations is reached. We monitor the square error to know if the training is working.
 
 ```py
