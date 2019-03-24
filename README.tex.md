@@ -161,7 +161,7 @@ The aspect that I had difficult the most when I tried to implement NNs in Python
 Let's re-write the equations we have learned so far on matrix representation. First we will work with a particular example $(3 inputs, 1 output)$, so you can visualize the dimensions, then we will write the algebraic notation generalizing this particular case.
 
 $$
-(26): X = \begin{bmatrix}
+X = \begin{bmatrix}
 x_1 \\
 x_2 \\
 x_3 \\
@@ -189,7 +189,7 @@ $$
 Output $A$ of the Neuron is given by:
 
 $$
-(27): \begin{bmatrix}
+\begin{bmatrix}
 a_1 \\
 \end{bmatrix}
 = 
@@ -213,7 +213,7 @@ $$
 
 After applying the **Activation Function**, we have:
 $$
-(29): Z = 
+Z = 
 \begin{bmatrix}
 \sigma(a1) \\
 \end{bmatrix}
@@ -226,7 +226,7 @@ $$
 Notice, from vectorial calculus that:
 
 $$
-(31): \frac{\partial Z}{\partial w_i} = 
+\frac{\partial Z}{\partial w_i} = 
 \begin{bmatrix}
 \frac{\partial Z}{\partial w1} \\
 \\
@@ -276,7 +276,7 @@ $$
 
 
 $$
-(33): \begin{bmatrix}
+\begin{bmatrix}
 b(t+1) \\
 \end{bmatrix}
 =
