@@ -160,29 +160,29 @@ The aspect that I had difficult the most when I tried to implement NNs in Python
 
 Let's re-write the equations we have learned so far on matrix representation. First we will work with a particular example <img src="/tex/618665d8d764eca9c578a2a175f0061b.svg?invert_in_darkmode&sanitize=true" align=middle width=130.31361255pt height=24.65753399999998pt/>, so you can visualize the dimensions, then we will write the algebraic notation generalizing this particular case.
 
-<p align="center"><img src="/tex/b878e5e12f013aa24a7f64d0d5997243.svg?invert_in_darkmode&sanitize=true" align=middle width=423.6245574pt height=59.1786591pt/></p>
+<p align="center"><img src="/tex/13461f75d11da71cde0726b5023d0f23.svg?invert_in_darkmode&sanitize=true" align=middle width=380.70228405pt height=59.1786591pt/></p>
 
 Output <img src="/tex/53d147e7f3fe6e47ee05b88b166bd3f6.svg?invert_in_darkmode&sanitize=true" align=middle width=12.32879834999999pt height=22.465723500000017pt/> of the Neuron is given by:
 
-<p align="center"><img src="/tex/9c342de2c10d5a9093b6238b8cbed194.svg?invert_in_darkmode&sanitize=true" align=middle width=280.87807935pt height=59.1786591pt/></p>
+<p align="center"><img src="/tex/3f1486440d5360f417aa6888d6c808a0.svg?invert_in_darkmode&sanitize=true" align=middle width=237.955806pt height=59.1786591pt/></p>
 
 <p align="center"><img src="/tex/e18af9b7380108f9969f163a1b874dfd.svg?invert_in_darkmode&sanitize=true" align=middle width=237.35981114999998pt height=18.7598829pt/></p>
 
 After applying the **Activation Function**, we have:
-<p align="center"><img src="/tex/4633c48e3302368a797c36ef4dedbe8e.svg?invert_in_darkmode&sanitize=true" align=middle width=130.61249519999998pt height=19.726228499999998pt/></p>
+<p align="center"><img src="/tex/d214c29d79da3c95df531d6877a7291a.svg?invert_in_darkmode&sanitize=true" align=middle width=87.69022185pt height=19.726228499999998pt/></p>
 
 <p align="center"><img src="/tex/b0555c9199390d80ab1829bbeaac193c.svg?invert_in_darkmode&sanitize=true" align=middle width=196.0682823pt height=16.438356pt/></p>
 
 Notice, from vectorial calculus that:
 
-<p align="center"><img src="/tex/25cb9f7d0086adf3653993d95ba7dbdb.svg?invert_in_darkmode&sanitize=true" align=middle width=237.20481674999996pt height=100.34585715pt/></p>
+<p align="center"><img src="/tex/fa9e33dcd405d210607971e2b44cf1db.svg?invert_in_darkmode&sanitize=true" align=middle width=192.30994529999998pt height=100.34585715pt/></p>
 
 The Learning Equations can be re-written as:
 
 <p align="center"><img src="/tex/e611156fb5bcb0c629578562e5315d77.svg?invert_in_darkmode&sanitize=true" align=middle width=390.9869601pt height=237.81372119999997pt/></p>
 
 
-<p align="center"><img src="/tex/e9be1108d54b2274b8a66eedc8906180.svg?invert_in_darkmode&sanitize=true" align=middle width=279.42894044999997pt height=19.726228499999998pt/></p>
+<p align="center"><img src="/tex/6038e154ccad851b48acbbfdfea23a56.svg?invert_in_darkmode&sanitize=true" align=middle width=236.50666710000002pt height=19.726228499999998pt/></p>
 
 <p align="center"><img src="/tex/7177e96421fe6dd3e0b448fd34e2d5b9.svg?invert_in_darkmode&sanitize=true" align=middle width=343.06229594999996pt height=19.68035685pt/></p>
 
