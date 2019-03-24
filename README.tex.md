@@ -63,15 +63,15 @@ $$Xi = <x1, x2, x3, ...., Xn, Y> :(5)$$
 
 where, $<x1, x2, x3, ...., Xn>$ is the input and *Y* is the correct class for the example. Now, we randomly generate a set of initial weights $<w1, w2, w3, ..., wn>$ and biases $<b1, b2, b3,..., bn>$. We should be able to describe how far we are from classifying the examples correctly, so we can take the best action to improve our classifier. That is the point that **Cost Function** comes in handy. One very popular **Cost Function** is the quadratic error difference, given by:
 
-$$C(w, b) = \|Y -Ŷ\|^2 :(4)$$
+$$C(w, b) = \|Y -Ŷ\|^2 :(6)$$
 
 This formula tells that for a given set of wights and biases $(w,b)$, the cost is the square of the distance between the right classification $Y$ and the estimated classification $Ŷ$. On 1-dimensional classifiers, such as *Perceptron*, the distance is simply the difference; On N-dimensional problems the cost is the module of the vectorial distance between the two vectors.
 
 In this context, SGD is a method to update $(w,b)$ interactively towards one of the minimum of the function *$C(w,b)$ hopping that it will turn our classifier better, or it will converge towards a minimum. SGD defines the following two update equations, also called in this article learning equations:
 
-$$w_i(t+1) = w_i(t) - \eta\frac{\partial C}{\partial w_i} :(6)$$
+$$w_i(t+1) = w_i(t) - \eta\frac{\partial C}{\partial w_i} :(7)$$
 
-$$b_i(t+1) = b_i(t) - \eta\frac{\partial C}{\partial b_i} :(7)$4
+$$b_i(t+1) = b_i(t) - \eta\frac{\partial C}{\partial b_i} :(8)$4$
 
 These two equations tell that every interaction of the algorithm we must update the weights and biases by a fraction *$\eta$* of the partial derivative, but in the opposite direction. That makes $C(w,b)$ to advance towards a local minimum. It turns out that a function can have multiples minimums, and depending of the initial values we may be trapped on a local minimum, instead of a global one. There are some techniques to mitigate that, however it beyond the scope of this article.
 
@@ -79,63 +79,63 @@ These two equations tell that every interaction of the algorithm we must update 
 
 Let's apply what ye have discussed so far to formulate the *Perceptron*.
 
-$$(7) Estimated Output: Ŷ = \tau(a) = \tau( \sum_{i=1}^{n} w_{i}*x_{i} + b )$$
+$$(9) Estimated Output: Ŷ = \tau(a) = \tau( \sum_{i=1}^{n} w_{i}*x_{i} + b )$$
 
-$$(8) Cost Function: C(w,b) = \|Y - Ŷ\|^2$$
+$$(10) Cost Function: C(w,b) = \|Y - Ŷ\|^2$$
 
 *Perceptrons* have uni-dimensional output, so we are going to skip the vectorial notation. Re-wrinting it, we have:
 
-$$(9) Cost Function: C(w,b) = (y-ŷ)^2 = (y-\tau(a))^2$$
+$$(11) Cost Function: C(w,b) = (y-ŷ)^2 = (y-\tau(a))^2$$
 
 Learning Equations:
 
-$$w_i(t+1) = w_i(t) - \eta\frac{\partial C}{\partial w_i} :(10)$$
+$$w_i(t+1) = w_i(t) - \eta\frac{\partial C}{\partial w_i} :(12)$$
 
-$$b_i(t+1) = b_i(t) - \eta\frac{\partial C}{\partial b_i} :(11)$$
+$$b_i(t+1) = b_i(t) - \eta\frac{\partial C}{\partial b_i} :(13)$$
 
 The key part to understand the next step is to remember the **Chain Rule Derivative**, which is given by:
 
 $${\frac{df(g(x))}{dx}} = {\frac{df(x)}{dg(x)}} {\frac{dg(x)}{dx}}$$
 
-Applying $(9)$ in $(10)$, we have:
+Applying $(10)$ in $(12)$, we have:
 
-$$w_i(t+1) = w_i(t) - \eta\frac{\partial }{\partial w_i}[(y-ŷ)^2] :(11)$$
+$$w_i(t+1) = w_i(t) - \eta\frac{\partial }{\partial w_i}[(y-ŷ)^2] :(14)$$
 
 Let's call the derivative of $D$:
 
-$$D = \frac{\partial }{\partial w_i}[(y-ŷ)^2)] = \frac{\partial }{\partial w_i}[(y-\tau(w))^2] :(12)$$
+$$D = \frac{\partial }{\partial w_i}[(y-ŷ)^2)] = \frac{\partial }{\partial w_i}[(y-\tau(w))^2] :(15)$$
 
 If you notice, we have written $D$ on a way that it would be evident the **Chain Rule**.
 
 Applying the **Chain Rule**, we have:
 
-$$D = \frac{\partial}{\partial \tau(w)}[(y-\tau(w))^2]\frac{\partial}{\partial w_i}[y - \tau(w)] = 2\tau(w)\tau'(w) :(13)$$
+$$D = \frac{\partial}{\partial \tau(w)}[(y-\tau(w))^2]\frac{\partial}{\partial w_i}[y - \tau(w)] = 2\tau(w)\tau'(w) :(16)$$
 
 Notice that $y$ is constant, therefore its derivatives regarding $w_i$, and $\tau(w_i)$ are zero.
 
-Finally, we can update the Learning Equation $(10)$ to:
+Finally, we can update the Learning Equation $(17)$ to:
 
-$$w_i(t+1) = w_i(t) - 2\eta\tau(w)\tau'(w)] :(14)$$
+$$w_i(t+1) = w_i(t) - 2\eta\tau(w)\tau'(w)] :(18)$$
 
 Do you remember from the SGD section, that SGD required a differentiable objective function? Now, you can understand why. As you must have noticed, SGD depends on both **Cost Function** and **Activation Function** derivatives. That is
 the reason why we do not utilize the step function in practice. Since it has a singularity on $x=0$ we have now way to calculate the derivatives we need on several points of the space.
 
 Applying the same concepts, we can demonstrate that the learning equation for $b_i$ is:
 
-$$D = \frac{\partial}{\partial \tau(b_i)}[(y-\tau(b_i))^2]\frac{\partial}{\partial b_i}[y - \tau(b_i)] = 2\tau(b_i)\tau'(b_i) :(15)$$
+$$D = \frac{\partial}{\partial \tau(b_i)}[(y-\tau(b_i))^2]\frac{\partial}{\partial b_i}[y - \tau(b_i)] = 2\tau(b_i)\tau'(b_i) :(19)$$
 
 Remember:
 
-$$\tau'(b) = \tau'( \sum_{i=1}^{n} w_{i}*x_{i} + b )= 1 :(16)$$
+$$\tau'(b) = \tau'( \sum_{i=1}^{n} w_{i}*x_{i} + b )= 1 :(20)$$
 
 Therefore,
 
-$$b_i(t+1) = b_i(t) - 2\eta\tau(a)] (17)$$
+$$b_i(t+1) = b_i(t) - 2\eta\tau(a)] (21)$$
 
 We now have the two Learning Equations that we can use to implement the algorithm:
 
-$$w_i(t+1) = w_i(t) - 2\eta\tau(a)\tau'(a)] :(18)$$
+$$w_i(t+1) = w_i(t) - 2\eta\tau(a)\tau'(a)] :(22)$$
 
-$$b_i(t+1) = b_i(t) - 2\eta\tau(a)] (19)$$
+$$b_i(t+1) = b_i(t) - 2\eta\tau(a)] (23)$$
 
 
