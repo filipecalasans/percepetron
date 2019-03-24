@@ -19,36 +19,26 @@ The picture bellow shows a *Perceptron* and its different mathematical component
 
 Mathematically speaking, this neuron produces the following output:
 
-\begin{equation*}
-$out(t) = tau( \sum_{i=1}^{n} w_{i}*x_{i} + b )$
-\end{equation*}
+<p align="center"><img src="/tex/81012650e68062e43473f79d424f1e6a.svg?invert_in_darkmode&sanitize=true" align=middle width=225.66415904999997pt height=18.150897599999997pt/></p>
 
 In other words, the output of a neuron is given by a linear combination of its inputs:
 
-\begin{equation*}
-$\sum_{i=1}^{n} w_{i}*x_{i} :(1)$
-\end{equation*}
+<p align="center"><img src="/tex/c6e96a9879596512e1ca747f468d060c.svg?invert_in_darkmode&sanitize=true" align=middle width=124.5451383pt height=18.150897599999997pt/></p>
 
 Adjusted by an offset, called baias, which give us output **a**:
 
-\begin{equation*}
-$a = \sum_{i=1}^{n} w_{i}*x_{i} + b :(2)$
-\end{equation*}
+<p align="center"><img src="/tex/bb4580678c77d4c9117cbc9b45affedb.svg?invert_in_darkmode&sanitize=true" align=middle width=183.6546558pt height=18.150897599999997pt/></p>
 
 Then, the output is calculated passing the input to a function denominated **Activation Function**:
 
-\begin{equation*}
-$z = out(t) = \tau(a) :(3)$
-\end{equation*}
+<p align="center"><img src="/tex/585d690c417f302f41000ad7e6984a2e.svg?invert_in_darkmode&sanitize=true" align=middle width=162.94160685pt height=16.438356pt/></p>
 
 If you remind of Linear Algebra, the equation *(2)* looks very similar to a hyperplane. Moreover, the equation 
-give us a notion of how far the data sample $X<x1,x2,x3,...,xn>$ is from the hyperplane:
+give us a notion of how far the data sample <img src="/tex/cac897175c490e9b92edc30b897b88a3.svg?invert_in_darkmode&sanitize=true" align=middle width=169.2044904pt height=22.465723500000017pt/> is from the hyperplane:
 
-\begin{equation*}
-$\sum_{i=1}^{n} w_{i}*x_{i} + b = 0 :(4)$
-\end{equation*}
+<p align="center"><img src="/tex/351aaba2c6eea885cab2e44193802227.svg?invert_in_darkmode&sanitize=true" align=middle width=181.82796555pt height=18.150897599999997pt/></p>
 
-Using *Perceptron*, we can create a classifier that given an example characterized by the input $X<x1,x2,x3,...,xn>$, it returns if the example is **Class** **A = 0** or **B = 1**, using as decisive factor how far the point is from the hyperplane. If you noticed, this is the role of the **Activation Function** in the equation *(3)*. In this case, the example shows the step function, but as I'll show you later there are better **Activation Functions** that we can use.
+Using *Perceptron*, we can create a classifier that given an example characterized by the input <img src="/tex/cac897175c490e9b92edc30b897b88a3.svg?invert_in_darkmode&sanitize=true" align=middle width=169.2044904pt height=22.465723500000017pt/>, it returns if the example is **Class** **A = 0** or **B = 1**, using as decisive factor how far the point is from the hyperplane. If you noticed, this is the role of the **Activation Function** in the equation *(3)*. In this case, the example shows the step function, but as I'll show you later there are better **Activation Functions** that we can use.
 
 ### Now, you should be wondering: How does perceptron "learns" the best hyperplane? 
 
@@ -70,90 +60,62 @@ The concept of *Cost Function* is also applicable to NNs. It  mathematically rep
 
 Let's make a hypothetical experiment. Let's say we have a data set with 10 examples, given by: 
 
-\begin{equation*}
-$Xi = <x1, x2, x3, ...., Xn, Y> :(5)$
-\end{equation*}
+<p align="center"><img src="/tex/8d5b956c0f66255b73784d0c7fddc11f.svg?invert_in_darkmode&sanitize=true" align=middle width=236.98690785pt height=16.438356pt/></p>
 
-where, $<x1, x2, x3, ...., Xn>$ is the input and *Y* is the correct class for the example. Now, we randomly generates a set of initial weights $<w1, w2, w3, ..., wn>$ and biases $<b1, b2, b3,..., bn>$. We should be able to describe how far we are from classifying the examples correctly, so we can take the best action to improve our classifier. That is the point that **Cost Function** comes in handy. One very popular **Cost Function** is the quadratic error difference, given by:
+where, <img src="/tex/9a7e8f68349d094d9f7c597453e4cd1f.svg?invert_in_darkmode&sanitize=true" align=middle width=159.809628pt height=22.465723500000017pt/> is the input and *Y* is the correct class for the example. Now, we randomly generates a set of initial weights <img src="/tex/59f5c7b361345f8237d1bab6a4e9e794.svg?invert_in_darkmode&sanitize=true" align=middle width=160.99315649999997pt height=21.18721440000001pt/> and biases <img src="/tex/49f0048c71ffb9701ef80d555a331f2a.svg?invert_in_darkmode&sanitize=true" align=middle width=140.36896005pt height=22.831056599999986pt/>. We should be able to describe how far we are from classifying the examples correctly, so we can take the best action to improve our classifier. That is the point that **Cost Function** comes in handy. One very popular **Cost Function** is the quadratic error difference, given by:
 
-\begin{equation*}
-$C(w, b) = \|\|Y -Ŷ\|\|^2 :(4)$
-\end{equation*}
+<p align="center"><img src="/tex/04e64d5ea2d36f14cda8216b8bf53250.svg?invert_in_darkmode&sanitize=true" align=middle width=200.89052114999998pt height=19.68035685pt/></p>
 
-This formula tells that for a given set of wights and biases $(w,b)$, the cost is the square of the distance between the right classification $Y$ and the estimated classification $Ŷ$. On 1-dimensional classifiers, such as *Perceptron*, the distance is simply the difference; On N-dimensional problems the value is the module of the vectorial distance between the two vectors.
+This formula tells that for a given set of wights and biases <img src="/tex/ef714b3dc87e11b2953977c10a4d6d43.svg?invert_in_darkmode&sanitize=true" align=middle width=39.35695994999999pt height=24.65753399999998pt/>, the cost is the square of the distance between the right classification <img src="/tex/91aac9730317276af725abd8cef04ca9.svg?invert_in_darkmode&sanitize=true" align=middle width=13.19638649999999pt height=22.465723500000017pt/> and the estimated classification <img src="/tex/29ca0449252d1ae4e25240e835c5107b.svg?invert_in_darkmode&sanitize=true" align=middle width=13.19638649999999pt height=31.141535699999984pt/>. On 1-dimensional classifiers, such as *Perceptron*, the distance is simply the difference; On N-dimensional problems the value is the module of the vectorial distance between the two vectors.
 
-In this context, SGD is a method to update $(w,b)$ interactively towards one of the minimum of the function *$(w,b)$ hopping that it will turn our classifier better. SGD defines the following two update equations, also called in this article learning equations:
+In this context, SGD is a method to update <img src="/tex/ef714b3dc87e11b2953977c10a4d6d43.svg?invert_in_darkmode&sanitize=true" align=middle width=39.35695994999999pt height=24.65753399999998pt/> interactively towards one of the minimum of the function *<img src="/tex/ef714b3dc87e11b2953977c10a4d6d43.svg?invert_in_darkmode&sanitize=true" align=middle width=39.35695994999999pt height=24.65753399999998pt/> hopping that it will turn our classifier better. SGD defines the following two update equations, also called in this article learning equations:
 
-\begin{equation*}
-$w_i(t+1) = w_i(t) - \eta\frac{\partial C}{\partial w_i} :(6)$
-\end{equation*}
+<p align="center"><img src="/tex/d331d380fd0a6d117e0da1a5c2c36099.svg?invert_in_darkmode&sanitize=true" align=middle width=212.19357885pt height=21.7756011pt/></p>
 
-\begin{equation*}
-$b_i(t+1) = b_i(t) - \eta\frac{\partial C}{\partial b_i} :(7)$
-\end{equation*}
+<p align="center"><img src="/tex/68e62b90c9f31524c7c7b4a8e7b4cdb8.svg?invert_in_darkmode&sanitize=true" align=middle width=201.0112797pt height=21.7756011pt/></p>
 
-These two equations tells that every interaction of the algorithm we must update the weights and biases by a fraction *$\eta$* of the partial derivative, but in the opposite direction. That makes $w_i$ towards a local minimum (potential global minimum).
+These two equations tells that every interaction of the algorithm we must update the weights and biases by a fraction *<img src="/tex/1d0496971a2775f4887d1df25cea4f7e.svg?invert_in_darkmode&sanitize=true" align=middle width=8.751954749999989pt height=14.15524440000002pt/>* of the partial derivative, but in the opposite direction. That makes <img src="/tex/c2a29561d89e139b3c7bffe51570c3ce.svg?invert_in_darkmode&sanitize=true" align=middle width=16.41940739999999pt height=14.15524440000002pt/> towards a local minimum (potential global minimum).
 
 ## Formulating Perceptron
 
 Let's apply the previous discussions to formulate the *Perceptron*.
 
-\begin{equation*}
-$(7) Estimated Output: Ŷ = \tau(a) = \tau( \sum_{i=1}^{n} w_{i}*x_{i} + b )$
-\end{equation*}
+<p align="center"><img src="/tex/0201b21642f6e0a78ba870718aa4186b.svg?invert_in_darkmode&sanitize=true" align=middle width=397.5156174pt height=20.50235055pt/></p>
 
-\begin{equation*}
-$(8) Cost Function: C(w,b) = \|Y - Ŷ\|^2$
-\end{equation*}
+<p align="center"><img src="/tex/2b45367ea6b5aaddbbcc3c4a6bf7875e.svg?invert_in_darkmode&sanitize=true" align=middle width=283.49371709999997pt height=19.68035685pt/></p>
 
 *Perceptrons* have uni-dimensional output, so we are going to skip the vectorial notation. Re-wrinting it, we have:
 
-\begin{equation*}
-$(9) Cost Function: C(w,b) = (y-ŷ)^2 = (y-\tau(a))^2$
-\end{equation*}
+<p align="center"><img src="/tex/bd420a3171fcf8896e47dfaa69b3d20b.svg?invert_in_darkmode&sanitize=true" align=middle width=357.5272998pt height=17.4904653pt/></p>
 
 Learning Equations:
 
-\begin{equation*}
-$w_i(t+1) = w_i(t) - \eta\frac{\partial C}{\partial w_i} :(10)$
-\end{equation*}
+<p align="center"><img src="/tex/ac1726d7f6b3d181bce77c917dfc5cc4.svg?invert_in_darkmode&sanitize=true" align=middle width=220.41278819999997pt height=21.7756011pt/></p>
 
-\begin{equation*}
-$b_i(t+1) = b_i(t) - \eta\frac{\partial C}{\partial b_i} :(11)$
-\end{equation*}
+<p align="center"><img src="/tex/1b7d9cf2347056068694b36d2261a399.svg?invert_in_darkmode&sanitize=true" align=middle width=209.23048905pt height=21.7756011pt/></p>
 
 The key part to understanding the next step is **Chain Rule Derivative**. Recapitulating, **Chain Rule** is given by:
 
-\begin{equation*}
-$\frac{df(g(x))}{dx} = \frac{df(x}{dg(x)}\frac{dg(x)}{dx}$
-\end{equation*}
+<p align="center"><img src="/tex/2f4b17f123a30c9a2de9e966532d744f.svg?invert_in_darkmode&sanitize=true" align=middle width=145.96091894999998pt height=27.320389799999997pt/></p>
 
-Applying $(9)$ in $(10)$, we have:
+Applying <img src="/tex/a1fe456628ef54c400febb4c43522cc5.svg?invert_in_darkmode&sanitize=true" align=middle width=21.00464354999999pt height=24.65753399999998pt/> in <img src="/tex/ba5fe1a447c2f0050fee52d1db3dda81.svg?invert_in_darkmode&sanitize=true" align=middle width=29.22385289999999pt height=24.65753399999998pt/>, we have:
 
-\begin{equation*}
-$w_i(t+1) = w_i(t) - \eta\frac{\partial }{\partial w_i}[(y-ŷ)^2)] (10)$
-\end{equation*}
+<p align="center"><img src="/tex/5158317dca275aecfac86a1689ad69d2.svg?invert_in_darkmode&sanitize=true" align=middle width=279.7890216pt height=21.7756011pt/></p>
 
-Let's call the derivative of $D$:
+Let's call the derivative of <img src="/tex/78ec2b7008296ce0561cf83393cb746d.svg?invert_in_darkmode&sanitize=true" align=middle width=14.06623184999999pt height=22.465723500000017pt/>:
 
-\begin{equation*}
-$D = \frac{\partial }{\partial w_i}[(y-ŷ)^2)] = \frac{\partial }{\partial w_i}[(y-\tau(w))^2)]$
-\end{equation*}
+<p align="center"><img src="/tex/50602ef0ac272fc949b28e71a24bc06b.svg?invert_in_darkmode&sanitize=true" align=middle width=232.43452154999997pt height=25.0250055pt/></p>
 
-If you notice, we wrote $D$ in a way that it would be evident the **Chain Rule**.
+If you notice, we wrote <img src="/tex/78ec2b7008296ce0561cf83393cb746d.svg?invert_in_darkmode&sanitize=true" align=middle width=14.06623184999999pt height=22.465723500000017pt/> in a way that it would be evident the **Chain Rule**.
 
 Applying the **Chain Rule**, we have:
 
-\begin{equation*}
-$D = \frac{\partial}{\partial \tau(w)}[(y-\tau(w))^2]\frac{\partial}{\partial w_i}[y - \tau(w_i)] = 2\tau(w)\tau'(w)$
-\end{equation*}
+<p align="center"><img src="/tex/ccc5e375fd14b7eab78c976f0cf61aa7.svg?invert_in_darkmode&sanitize=true" align=middle width=309.5128938pt height=25.0250055pt/></p>
 
-Notice that $y$ is constant, therefore its derivatives regarding $w_i$, and $\tau(w_i)$ are zero.
+Notice that <img src="/tex/deceeaf6940a8c7a5a02373728002b0f.svg?invert_in_darkmode&sanitize=true" align=middle width=8.649225749999989pt height=14.15524440000002pt/> is constant, therefore its derivatives regarding <img src="/tex/c2a29561d89e139b3c7bffe51570c3ce.svg?invert_in_darkmode&sanitize=true" align=middle width=16.41940739999999pt height=14.15524440000002pt/>, and <img src="/tex/298816eb1611d0204937793eb4b79ce8.svg?invert_in_darkmode&sanitize=true" align=middle width=39.07357244999999pt height=24.65753399999998pt/> are zero.
 
 Finally, we can update the Learning Equation to:
 
-\begin{equation*}
-$w_i(t+1) = w_i(t) - 2\eta\tau(a)\tau'(a)] (10)$
-\end{equation*}
+<p align="center"><img src="/tex/1967a4ae1d40de7084318b3a952a6066.svg?invert_in_darkmode&sanitize=true" align=middle width=258.7645038pt height=16.4676534pt/></p>
 
-Do you remember from the SGD section, that SGD required required a differentiable objective function? You can notice that the learning equation depends on the **Cost Function** derivative, and also in the **Activation Function** derivative. That's why we do not utilize the step function (singularity in $x=0$).
+Do you remember from the SGD section, that SGD required required a differentiable objective function? You can notice that the learning equation depends on the **Cost Function** derivative, and also in the **Activation Function** derivative. That's why we do not utilize the step function (singularity in <img src="/tex/8436d02a042a1eec745015a5801fc1a0.svg?invert_in_darkmode&sanitize=true" align=middle width=39.53182859999999pt height=21.18721440000001pt/>).
