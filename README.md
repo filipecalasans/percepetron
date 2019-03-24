@@ -73,7 +73,7 @@ In this context, SGD is a method to update <img src="/tex/ef714b3dc87e11b2953977
 
 <p align="center"><img src="/tex/264896f33ad740b0213a9a1f6a9b7e71.svg?invert_in_darkmode&sanitize=true" align=middle width=202.7827065pt height=36.2778141pt/></p>
 
-These two equations tell that every interaction of the algorithm we must update the weights and biases by a fraction *<img src="/tex/1d0496971a2775f4887d1df25cea4f7e.svg?invert_in_darkmode&sanitize=true" align=middle width=8.751954749999989pt height=14.15524440000002pt/>* of the partial derivative, but in the opposite direction. That makes <img src="/tex/1850bfb0ad9603625395b5c8bc51832a.svg?invert_in_darkmode&sanitize=true" align=middle width=52.28159639999999pt height=24.65753399999998pt/> to advance towards a local minimum. It turns out that a function can have multiples minimums, and depending of the initial values we may be trapped on a local minimum, instead of a global one. There are some techniques to mitigate that, however it beyond the scope of this article.
+These two equations tell that every interaction of the algorithm we must update the weights and biases by a fraction *<img src="/tex/1d0496971a2775f4887d1df25cea4f7e.svg?invert_in_darkmode&sanitize=true" align=middle width=8.751954749999989pt height=14.15524440000002pt/>* of the partial derivative, but in the opposite direction. That makes <img src="/tex/1850bfb0ad9603625395b5c8bc51832a.svg?invert_in_darkmode&sanitize=true" align=middle width=52.28159639999999pt height=24.65753399999998pt/> to advance towards a local minimum. It turns out that a function can have multiples minimums, and depending of the initial values we may be trapped on a local minimum, instead of a global one. There are some techniques to mitigate that, however it is beyond the scope of this article.
 
 ## Formulating the Perceptron
 
@@ -101,11 +101,11 @@ Applying <img src="/tex/ba5fe1a447c2f0050fee52d1db3dda81.svg?invert_in_darkmode&
 
 <p align="center"><img src="/tex/f42522559706cef82b178baf3c84539b.svg?invert_in_darkmode&sanitize=true" align=middle width=291.4279269pt height=36.2778141pt/></p>
 
-Let's call the derivative of <img src="/tex/78ec2b7008296ce0561cf83393cb746d.svg?invert_in_darkmode&sanitize=true" align=middle width=14.06623184999999pt height=22.465723500000017pt/>:
+Let's call the derivative <img src="/tex/78ec2b7008296ce0561cf83393cb746d.svg?invert_in_darkmode&sanitize=true" align=middle width=14.06623184999999pt height=22.465723500000017pt/>:
 
 <p align="center"><img src="/tex/ed7e36fa0fbdee99034a50fb8daa8210.svg?invert_in_darkmode&sanitize=true" align=middle width=328.56408915pt height=36.2778141pt/></p>
 
-If you notice, we have written <img src="/tex/78ec2b7008296ce0561cf83393cb746d.svg?invert_in_darkmode&sanitize=true" align=middle width=14.06623184999999pt height=22.465723500000017pt/> on a way that it would be evident the **Chain Rule**.
+If you notice, we have written <img src="/tex/78ec2b7008296ce0561cf83393cb746d.svg?invert_in_darkmode&sanitize=true" align=middle width=14.06623184999999pt height=22.465723500000017pt/> on a way that it is evident the **Chain Rule**.
 
 Let's call <img src="/tex/4a547888053313824f59344dea6bfb27.svg?invert_in_darkmode&sanitize=true" align=middle width=119.06382674999998pt height=24.65753399999998pt/>.
 
