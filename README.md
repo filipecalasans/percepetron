@@ -175,11 +175,11 @@ After applying the **Activation Function**, we have:
 
 Notice, from vectorial calculus that:
 
-<p align="center"><img src="/tex/fa9e33dcd405d210607971e2b44cf1db.svg?invert_in_darkmode&sanitize=true" align=middle width=192.30994529999998pt height=100.34585715pt/></p>
+<p align="center"><img src="/tex/d257addb21af0ecbaede2879d45e9b85.svg?invert_in_darkmode&sanitize=true" align=middle width=192.63145935pt height=100.34585715pt/></p>
 
 The Learning Equations can be re-written as:
 
-<p align="center"><img src="/tex/54991417e14ea6253334d2e87b8c70e9.svg?invert_in_darkmode&sanitize=true" align=middle width=349.51878554999996pt height=98.63111444999998pt/></p>
+<p align="center"><img src="/tex/ce9f08162de18eaa0896eb5ee05441b6.svg?invert_in_darkmode&sanitize=true" align=middle width=349.8402996pt height=98.63111444999998pt/></p>
 
 
 <p align="center"><img src="/tex/6038e154ccad851b48acbbfdfea23a56.svg?invert_in_darkmode&sanitize=true" align=middle width=236.50666710000002pt height=19.726228499999998pt/></p>
