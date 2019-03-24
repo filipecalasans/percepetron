@@ -71,6 +71,71 @@ In this context, SGD is a method to update <img src="/tex/ef714b3dc87e11b2953977
 
 <p align="center"><img src="/tex/e3edb60f5dbe2d0f213a5f886b110b11.svg?invert_in_darkmode&sanitize=true" align=middle width=216.52677914999998pt height=36.2778141pt/></p>
 
-<p align="center"><img src="/tex/ad71ab9caf04fbb85c11d6b806a431e1.svg?invert_in_darkmode&sanitize=true" align=middle width=700.2746189999999pt height=219.38286315000002pt/></p>(9) Estimated Output: Ŷ = \tau(a) = \tau( \sum_{i=1}^{n} w_{i}*x_{i} + b )<p align="center"><img src="/tex/e7e1fce898b1583cb28cc71db94ffdd5.svg?invert_in_darkmode&sanitize=true" align=middle width=0.0pt height=0.0pt/></p>(10) Cost Function: C(w,b) = \|Y - Ŷ\|^2<p align="center"><img src="/tex/2d572b7d0902aa386e00f7298f25021b.svg?invert_in_darkmode&sanitize=true" align=middle width=700.2745398pt height=35.251144499999995pt/></p>(11) Cost Function: C(w,b) = (y-ŷ)^2 = (y-\tau(a))^2<p align="center"><img src="/tex/fa0bf65070ac4c7a4991859b6f503f42.svg?invert_in_darkmode&sanitize=true" align=middle width=145.34289495pt height=14.42921205pt/></p>w_i(t+1) = w_i(t) - \eta\frac{\partial C}{\partial w_i} :(12)<p align="center"><img src="/tex/e7e1fce898b1583cb28cc71db94ffdd5.svg?invert_in_darkmode&sanitize=true" align=middle width=0.0pt height=0.0pt/></p>b_i(t+1) = b_i(t) - \eta\frac{\partial C}{\partial b_i} :(13)<p align="center"><img src="/tex/b4f94f0579c130dda2e20c386bc401e6.svg?invert_in_darkmode&sanitize=true" align=middle width=700.2746553pt height=35.251144499999995pt/></p>{\frac{df(g(x))}{dx}} = {\frac{df(x)}{dg(x)}} {\frac{dg(x)}{dx}}<p align="center"><img src="/tex/8f8383f067ed6a8066b73f35c6ef4808.svg?invert_in_darkmode&sanitize=true" align=middle width=225.57137294999998pt height=16.438356pt/></p>w_i(t+1) = w_i(t) - \eta\frac{\partial }{\partial w_i}[(y-ŷ)^2] :(14)<p align="center"><img src="/tex/b5ba3d385441b10676fd6f8b2c573d21.svg?invert_in_darkmode&sanitize=true" align=middle width=211.69233359999998pt height=11.4155283pt/></p>D = \frac{\partial }{\partial w_i}[(y-ŷ)^2)] = \frac{\partial }{\partial w_i}[(y-\tau(w))^2] :(15)<p align="center"><img src="/tex/320c0819532c644a5439d2d83925a35d.svg?invert_in_darkmode&sanitize=true" align=middle width=636.71615205pt height=35.251144499999995pt/></p>D = \frac{\partial}{\partial \tau(w)}[(y-\tau(w))^2]\frac{\partial}{\partial w_i}[y - \tau(w)] = 2\tau(w)\tau'(w) :(16)<p align="center"><img src="/tex/e73edf82a4e51a8ab2b11c6341541612.svg?invert_in_darkmode&sanitize=true" align=middle width=600.81026115pt height=36.164383199999996pt/></p>w_i(t+1) = w_i(t) - 2\eta\tau(w)\tau'(w)] :(18)<p align="center"><img src="/tex/ef9ac930b29289ac57f185238c8dc2c4.svg?invert_in_darkmode&sanitize=true" align=middle width=700.27465035pt height=113.24201624999999pt/></p>D = \frac{\partial}{\partial \tau(b_i)}[(y-\tau(b_i))^2]\frac{\partial}{\partial b_i}[y - \tau(b_i)] = 2\tau(b_i)\tau'(b_i) :(19)<p align="center"><img src="/tex/1fcfea2bb42596ee31952d5179b2c5f8.svg?invert_in_darkmode&sanitize=true" align=middle width=81.55274655pt height=11.4155283pt/></p>\tau'(b) = \tau'( \sum_{i=1}^{n} w_{i}*x_{i} + b )= 1 :(20)<p align="center"><img src="/tex/80cd99aaa301f3ef0180000c3710b049.svg?invert_in_darkmode&sanitize=true" align=middle width=73.6075527pt height=14.611878599999999pt/></p>b_i(t+1) = b_i(t) - 2\eta\tau(a)] (21)<p align="center"><img src="/tex/79c9cc02fa0d18b9da329721f95e4901.svg?invert_in_darkmode&sanitize=true" align=middle width=627.6727677pt height=14.611878599999999pt/></p>w_i(t+1) = w_i(t) - 2\eta\tau(a)\tau'(a)] :(22)<p align="center"><img src="/tex/e7e1fce898b1583cb28cc71db94ffdd5.svg?invert_in_darkmode&sanitize=true" align=middle width=0.0pt height=0.0pt/></p>b_i(t+1) = b_i(t) - 2\eta\tau(a)] (23)$$
+<p align="center"><img src="/tex/264896f33ad740b0213a9a1f6a9b7e71.svg?invert_in_darkmode&sanitize=true" align=middle width=202.7827065pt height=36.2778141pt/></p>
+
+These two equations tell that every interaction of the algorithm we must update the weights and biases by a fraction *<img src="/tex/1d0496971a2775f4887d1df25cea4f7e.svg?invert_in_darkmode&sanitize=true" align=middle width=8.751954749999989pt height=14.15524440000002pt/>* of the partial derivative, but in the opposite direction. That makes <img src="/tex/1850bfb0ad9603625395b5c8bc51832a.svg?invert_in_darkmode&sanitize=true" align=middle width=52.28159639999999pt height=24.65753399999998pt/> to advance towards a local minimum. It turns out that a function can have multiples minimums, and depending of the initial values we may be trapped on a local minimum, instead of a global one. There are some techniques to mitigate that, however it beyond the scope of this article.
+
+## Formulating the Perceptron
+
+Let's apply what ye have discussed so far to formulate the *Perceptron*.
+
+<p align="center"><img src="/tex/0b7d27403a708854123e2c8e75de7c2b.svg?invert_in_darkmode&sanitize=true" align=middle width=374.96658375pt height=44.89738935pt/></p>
+
+<p align="center"><img src="/tex/6a70e049ab12a8cbc05c13201d889d57.svg?invert_in_darkmode&sanitize=true" align=middle width=289.80979005pt height=19.68035685pt/></p>
+
+*Perceptrons* have uni-dimensional output, so we are going to skip the vectorial notation. Re-wrinting it, we have:
+
+<p align="center"><img src="/tex/15a881a6ed41e5472b141691068a8819.svg?invert_in_darkmode&sanitize=true" align=middle width=378.40181279999996pt height=18.312383099999998pt/></p>
+
+Learning Equations:
+
+<p align="center"><img src="/tex/8c2ab502a7471706dbc383260fc1ad34.svg?invert_in_darkmode&sanitize=true" align=middle width=224.74598849999998pt height=36.2778141pt/></p>
+
+<p align="center"><img src="/tex/50c709c2b66c9608134d6b0843f6b416.svg?invert_in_darkmode&sanitize=true" align=middle width=211.00191585pt height=36.2778141pt/></p>
+
+The key part to understand the next step is to remember the **Chain Rule Derivative**, which is given by:
+
+<p align="center"><img src="/tex/489ee83ae8532e861c880a7e07ddd0dd.svg?invert_in_darkmode&sanitize=true" align=middle width=167.1712416pt height=38.83491479999999pt/></p>
+
+Applying <img src="/tex/ba5fe1a447c2f0050fee52d1db3dda81.svg?invert_in_darkmode&sanitize=true" align=middle width=29.22385289999999pt height=24.65753399999998pt/> in <img src="/tex/15ab5c1ec13963c53cc79907cd1a57aa.svg?invert_in_darkmode&sanitize=true" align=middle width=29.22385289999999pt height=24.65753399999998pt/>, we have:
+
+<p align="center"><img src="/tex/f42522559706cef82b178baf3c84539b.svg?invert_in_darkmode&sanitize=true" align=middle width=291.4279269pt height=36.2778141pt/></p>
+
+Let's call the derivative of <img src="/tex/78ec2b7008296ce0561cf83393cb746d.svg?invert_in_darkmode&sanitize=true" align=middle width=14.06623184999999pt height=22.465723500000017pt/>:
+
+<p align="center"><img src="/tex/189fd59da9d8db792312cf2295841dc5.svg?invert_in_darkmode&sanitize=true" align=middle width=327.62804084999993pt height=36.2778141pt/></p>
+
+If you notice, we have written <img src="/tex/78ec2b7008296ce0561cf83393cb746d.svg?invert_in_darkmode&sanitize=true" align=middle width=14.06623184999999pt height=22.465723500000017pt/> on a way that it would be evident the **Chain Rule**.
+
+Applying the **Chain Rule**, we have:
+
+<p align="center"><img src="/tex/fb4b9da8fcc450f6f103e357ffc098aa.svg?invert_in_darkmode&sanitize=true" align=middle width=424.18843665pt height=37.9216761pt/></p>
+
+Notice that <img src="/tex/deceeaf6940a8c7a5a02373728002b0f.svg?invert_in_darkmode&sanitize=true" align=middle width=8.649225749999989pt height=14.15524440000002pt/> is constant, therefore its derivatives regarding <img src="/tex/c2a29561d89e139b3c7bffe51570c3ce.svg?invert_in_darkmode&sanitize=true" align=middle width=16.41940739999999pt height=14.15524440000002pt/>, and <img src="/tex/298816eb1611d0204937793eb4b79ce8.svg?invert_in_darkmode&sanitize=true" align=middle width=39.07357244999999pt height=24.65753399999998pt/> are zero.
+
+Finally, we can update the Learning Equation <img src="/tex/28520695807194870a28e367e9a2af1d.svg?invert_in_darkmode&sanitize=true" align=middle width=29.22385289999999pt height=24.65753399999998pt/> to:
+
+<p align="center"><img src="/tex/bbe56262199563197ef5030d12e0b628.svg?invert_in_darkmode&sanitize=true" align=middle width=279.4026378pt height=17.2895712pt/></p>
+
+Do you remember from the SGD section, that SGD required a differentiable objective function? Now, you can understand why. As you must have noticed, SGD depends on both **Cost Function** and **Activation Function** derivatives. That is
+the reason why we do not utilize the step function in practice. Since it has a singularity on <img src="/tex/8436d02a042a1eec745015a5801fc1a0.svg?invert_in_darkmode&sanitize=true" align=middle width=39.53182859999999pt height=21.18721440000001pt/> we have now way to calculate the derivatives we need on several points of the space.
+
+Applying the same concepts, we can demonstrate that the learning equation for <img src="/tex/d3aa71141bc89a24937c86ec1d350a7c.svg?invert_in_darkmode&sanitize=true" align=middle width=11.705695649999988pt height=22.831056599999986pt/> is:
+
+<p align="center"><img src="/tex/c505e3a6e6dc1426071eca2c8d711f69.svg?invert_in_darkmode&sanitize=true" align=middle width=421.05846255pt height=37.9216761pt/></p>
+
+Remember:
+
+<p align="center"><img src="/tex/0d14b51cb1aa48053f74d4ec6d0acba6.svg?invert_in_darkmode&sanitize=true" align=middle width=256.18386749999996pt height=44.89738935pt/></p>
+
+Therefore,
+
+<p align="center"><img src="/tex/1a3fff5702758997ba8c75770a27600a.svg?invert_in_darkmode&sanitize=true" align=middle width=214.10011425pt height=16.438356pt/></p>
+
+We now have the two Learning Equations that we can use to implement the algorithm:
+
+<p align="center"><img src="/tex/d461e27539941d8649dd7a54240018df.svg?invert_in_darkmode&sanitize=true" align=middle width=272.35925475pt height=17.2895712pt/></p>
+
+<p align="center"><img src="/tex/6e971cfbd024ea175e4fe83605ec4d02.svg?invert_in_darkmode&sanitize=true" align=middle width=214.10011425pt height=16.438356pt/></p>
 
 
