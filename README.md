@@ -18,7 +18,7 @@ Hope this document can help you on your learning journey. Good Luck !
 
 Mathematically speaking, this neuron produces the following output:
 
-<p align="center"><img src="/tex/9a809df9fdc8249e9410f07dab9cd474.svg?invert_in_darkmode&sanitize=true" align=middle width=187.04989214999998pt height=44.89738935pt/></p>
+<p align="center"><img src="/tex/4ed3291b949ab84de341c51e0169abad.svg?invert_in_darkmode&sanitize=true" align=middle width=187.98594045pt height=44.89738935pt/></p>
 
 In other words, the output of a neuron is given by a linear combination of its inputs:
 
@@ -30,7 +30,7 @@ Adjusted by an offset, called baias, which produces the output <img src="/tex/44
 
 Then, the final output is calculated passing <img src="/tex/44bc9d542a92714cac84e01cbbb7fd61.svg?invert_in_darkmode&sanitize=true" align=middle width=8.68915409999999pt height=14.15524440000002pt/> as argument of the function denominated **Activation Function**:
 
-<p align="center"><img src="/tex/355600e9458a6807696bbd8e5f76a8ad.svg?invert_in_darkmode&sanitize=true" align=middle width=159.46331775pt height=16.438356pt/></p>
+<p align="center"><img src="/tex/b2f63fde1a43cd602c961e800b8a121f.svg?invert_in_darkmode&sanitize=true" align=middle width=160.39936605pt height=16.438356pt/></p>
 
 If you remind of Linear Algebra, the equation *(2)* looks like the hyperplane equation <img src="/tex/c2e27d5dc3a5c37211768bd7e35bb67e.svg?invert_in_darkmode&sanitize=true" align=middle width=21.00464354999999pt height=24.65753399999998pt/>. Indeed it is a hyperplane. Moreover, the equation give us a notion of how far the data vector <img src="/tex/0fcf433dbe8b273336cdb1ea0866b4ed.svg?invert_in_darkmode&sanitize=true" align=middle width=168.2855526pt height=22.465723500000017pt/> is from the hyperplane:
 
@@ -79,19 +79,19 @@ These two equations tell that every interaction of the algorithm we must update 
 
 Let's apply what ye have discussed so far to formulate the *Perceptron*.
 
-<p align="center"><img src="/tex/0b7d27403a708854123e2c8e75de7c2b.svg?invert_in_darkmode&sanitize=true" align=middle width=374.96658375pt height=44.89738935pt/></p>
+<p align="center"><img src="/tex/d8ca7031841ffe3d69c77d4210237f9d.svg?invert_in_darkmode&sanitize=true" align=middle width=390.5371008pt height=44.89738935pt/></p>
 
-<p align="center"><img src="/tex/6a70e049ab12a8cbc05c13201d889d57.svg?invert_in_darkmode&sanitize=true" align=middle width=289.80979005pt height=19.68035685pt/></p>
+<p align="center"><img src="/tex/7b8d0047f75d3c2c770fd682c5023068.svg?invert_in_darkmode&sanitize=true" align=middle width=303.50821214999996pt height=19.68035685pt/></p>
 
 *Perceptrons* have uni-dimensional output, so we are going to skip the vectorial notation. Re-wrinting it, we have:
 
-<p align="center"><img src="/tex/15a881a6ed41e5472b141691068a8819.svg?invert_in_darkmode&sanitize=true" align=middle width=378.40181279999996pt height=18.312383099999998pt/></p>
+<p align="center"><img src="/tex/fd5bf95321b22e3e7e664e160c0ddc2c.svg?invert_in_darkmode&sanitize=true" align=middle width=393.03628155pt height=18.312383099999998pt/></p>
 
 Learning Equations:
 
 <p align="center"><img src="/tex/8c2ab502a7471706dbc383260fc1ad34.svg?invert_in_darkmode&sanitize=true" align=middle width=224.74598849999998pt height=36.2778141pt/></p>
 
-<p align="center"><img src="/tex/50c709c2b66c9608134d6b0843f6b416.svg?invert_in_darkmode&sanitize=true" align=middle width=211.00191585pt height=36.2778141pt/></p>
+<p align="center"><img src="/tex/73f624ee44730ad7c51823c76d82fed6.svg?invert_in_darkmode&sanitize=true" align=middle width=200.0563224pt height=33.81208709999999pt/></p>
 
 The key part to understand the next step is to remember the **Chain Rule Derivative**, which is given by:
 
@@ -103,39 +103,77 @@ Applying <img src="/tex/ba5fe1a447c2f0050fee52d1db3dda81.svg?invert_in_darkmode&
 
 Let's call the derivative of <img src="/tex/78ec2b7008296ce0561cf83393cb746d.svg?invert_in_darkmode&sanitize=true" align=middle width=14.06623184999999pt height=22.465723500000017pt/>:
 
-<p align="center"><img src="/tex/189fd59da9d8db792312cf2295841dc5.svg?invert_in_darkmode&sanitize=true" align=middle width=327.62804084999993pt height=36.2778141pt/></p>
+<p align="center"><img src="/tex/ed7e36fa0fbdee99034a50fb8daa8210.svg?invert_in_darkmode&sanitize=true" align=middle width=328.56408915pt height=36.2778141pt/></p>
 
 If you notice, we have written <img src="/tex/78ec2b7008296ce0561cf83393cb746d.svg?invert_in_darkmode&sanitize=true" align=middle width=14.06623184999999pt height=22.465723500000017pt/> on a way that it would be evident the **Chain Rule**.
 
+Let's call <img src="/tex/4a547888053313824f59344dea6bfb27.svg?invert_in_darkmode&sanitize=true" align=middle width=119.06382674999998pt height=24.65753399999998pt/>.
+
 Applying the **Chain Rule**, we have:
 
-<p align="center"><img src="/tex/fb4b9da8fcc450f6f103e357ffc098aa.svg?invert_in_darkmode&sanitize=true" align=middle width=424.18843665pt height=37.9216761pt/></p>
+<p align="center"><img src="/tex/26b0ac68253de9434c66358015fc2117.svg?invert_in_darkmode&sanitize=true" align=middle width=635.2464359999999pt height=39.887022449999996pt/></p>
 
-Notice that <img src="/tex/deceeaf6940a8c7a5a02373728002b0f.svg?invert_in_darkmode&sanitize=true" align=middle width=8.649225749999989pt height=14.15524440000002pt/> is constant, therefore its derivatives regarding <img src="/tex/c2a29561d89e139b3c7bffe51570c3ce.svg?invert_in_darkmode&sanitize=true" align=middle width=16.41940739999999pt height=14.15524440000002pt/>, and <img src="/tex/298816eb1611d0204937793eb4b79ce8.svg?invert_in_darkmode&sanitize=true" align=middle width=39.07357244999999pt height=24.65753399999998pt/> are zero.
+Notice that <img src="/tex/deceeaf6940a8c7a5a02373728002b0f.svg?invert_in_darkmode&sanitize=true" align=middle width=8.649225749999989pt height=14.15524440000002pt/> is constant, therefore its derivatives regarding <img src="/tex/c2a29561d89e139b3c7bffe51570c3ce.svg?invert_in_darkmode&sanitize=true" align=middle width=16.41940739999999pt height=14.15524440000002pt/>, and <img src="/tex/aef8fbb420b71de8ebe75f7dc3d250bd.svg?invert_in_darkmode&sanitize=true" align=middle width=40.00962074999999pt height=24.65753399999998pt/> are zero.
 
 Finally, we can update the Learning Equation <img src="/tex/28520695807194870a28e367e9a2af1d.svg?invert_in_darkmode&sanitize=true" align=middle width=29.22385289999999pt height=24.65753399999998pt/> to:
 
-<p align="center"><img src="/tex/bbe56262199563197ef5030d12e0b628.svg?invert_in_darkmode&sanitize=true" align=middle width=279.4026378pt height=17.2895712pt/></p>
+<p align="center"><img src="/tex/db3e913ef7c166c970359727464a91e1.svg?invert_in_darkmode&sanitize=true" align=middle width=314.58135555pt height=17.2895712pt/></p>
 
-Do you remember from the SGD section, that SGD required a differentiable objective function? Now, you can understand why. As you must have noticed, SGD depends on both **Cost Function** and **Activation Function** derivatives. That is
-the reason why we do not utilize the step function in practice. Since it has a singularity on <img src="/tex/8436d02a042a1eec745015a5801fc1a0.svg?invert_in_darkmode&sanitize=true" align=middle width=39.53182859999999pt height=21.18721440000001pt/> we have now way to calculate the derivatives we need on several points of the space.
+Do you remember that SGD requires a differentiable objective function? Now, you can understand why. As you must have noticed, SGD depends on both **Cost Function** and **Activation Function** derivatives. That is
+the reason why we do not utilize the step function as **Cost Function**. Since it has a singularity on <img src="/tex/8436d02a042a1eec745015a5801fc1a0.svg?invert_in_darkmode&sanitize=true" align=middle width=39.53182859999999pt height=21.18721440000001pt/> we have no way to calculate the derivatives on several points of the space.
 
-Applying the same concepts, we can demonstrate that the learning equation for <img src="/tex/d3aa71141bc89a24937c86ec1d350a7c.svg?invert_in_darkmode&sanitize=true" align=middle width=11.705695649999988pt height=22.831056599999986pt/> is:
+Applying the same approach, we can deduce the learning equation for <img src="/tex/4bdc8d9bcfb35e1c9bfb51fc69687dfc.svg?invert_in_darkmode&sanitize=true" align=middle width=7.054796099999991pt height=22.831056599999986pt/>.
 
-<p align="center"><img src="/tex/c505e3a6e6dc1426071eca2c8d711f69.svg?invert_in_darkmode&sanitize=true" align=middle width=421.05846255pt height=37.9216761pt/></p>
+<p align="center"><img src="/tex/b4f8ca80b4e09ab73842ddb3e0ddab2a.svg?invert_in_darkmode&sanitize=true" align=middle width=585.3145963499999pt height=39.887022449999996pt/></p>
 
 Remember:
 
-<p align="center"><img src="/tex/0d14b51cb1aa48053f74d4ec6d0acba6.svg?invert_in_darkmode&sanitize=true" align=middle width=256.18386749999996pt height=44.89738935pt/></p>
+<p align="center"><img src="/tex/2cadc561c9d3f507ac3c557dcb94330a.svg?invert_in_darkmode&sanitize=true" align=middle width=283.2169131pt height=44.89738935pt/></p>
 
 Therefore,
 
-<p align="center"><img src="/tex/1a3fff5702758997ba8c75770a27600a.svg?invert_in_darkmode&sanitize=true" align=middle width=214.10011425pt height=16.438356pt/></p>
+<p align="center"><img src="/tex/f88ced7d182be6ced9ef92718ee28468.svg?invert_in_darkmode&sanitize=true" align=middle width=246.70842570000002pt height=16.438356pt/></p>
 
-We now have the two Learning Equations that we can use to implement the algorithm:
+We have now the two Learning Equations that we can use to implement the algorithm:
 
-<p align="center"><img src="/tex/d461e27539941d8649dd7a54240018df.svg?invert_in_darkmode&sanitize=true" align=middle width=272.35925475pt height=17.2895712pt/></p>
+<p align="center"><img src="/tex/f71c2c8106f9c998eb2d64b7fe989610.svg?invert_in_darkmode&sanitize=true" align=middle width=274.23135134999995pt height=17.2895712pt/></p>
 
-<p align="center"><img src="/tex/6e971cfbd024ea175e4fe83605ec4d02.svg?invert_in_darkmode&sanitize=true" align=middle width=214.10011425pt height=16.438356pt/></p>
+<p align="center"><img src="/tex/db525abf61aae006e3f6b6cded0dce67.svg?invert_in_darkmode&sanitize=true" align=middle width=235.76283224999997pt height=16.438356pt/></p>
 
+## Choosing the Activation Function
+
+We are interested on finding an ** Activation Function ** that looks like a step function, but at the same time is continuous and differentiable in <img src="/tex/990b257e0959fef263bdbc9a4515b170.svg?invert_in_darkmode&sanitize=true" align=middle width=111.67792184999999pt height=19.1781018pt/>. Sigmoid, also called logistic function, is one of the widely used functions due to having these properties.
+
+Sigmoid function is given by:
+
+<p align="center"><img src="/tex/a274e2e6e3236f958a1d07cee6875695.svg?invert_in_darkmode&sanitize=true" align=middle width=129.0934194pt height=32.990165999999995pt/></p>
+
+With the following derivative:
+
+<p align="center"><img src="/tex/aae2da074431c70f8f26647cd89fb488.svg?invert_in_darkmode&sanitize=true" align=middle width=202.42564814999997pt height=16.438356pt/></p>
+
+NOTE: The sigmoid is easily differentiable using **Chain Rule**, this is also one of the reasons for its popularity. You can google it if you are curious how to calculate the derivative.
+
+## Notes on Matrix Representation
+
+The aspect that I had difficult the most when I tried to implement NNs in Python was to translate the equations to matrix representation. Sure, we could iterate over each index and calculate one weight per iteration. However, we would be limiting ourself. The main reason we should use matrix representation is because the numeric libraries we use are optimized for matrix representation, and they are that way for one reason. They try to take advantage of hardware optimization implemented to operate over matrices.
+
+Let's re-write the equations we have learned so far to matrix representation. First we will work with a particular example (3 inputs, 1 output) so you can visualize the dimensions, then we will write the algebrc notation generalizing this particular case.
+
+<p align="center"><img src="/tex/d67786ca2c705b30eebe44fa14f81bc0.svg?invert_in_darkmode&sanitize=true" align=middle width=515.8306576499999pt height=87.12385769999999pt/></p>
+
+Output <img src="/tex/53d147e7f3fe6e47ee05b88b166bd3f6.svg?invert_in_darkmode&sanitize=true" align=middle width=12.32879834999999pt height=22.465723500000017pt/> of the Neuron is given by:
+
+<p align="center"><img src="/tex/58b1665b08830a34dd4f2905fd688d01.svg?invert_in_darkmode&sanitize=true" align=middle width=444.4573633499999pt height=87.12385769999999pt/></p>
+
+<p align="center"><img src="/tex/80cb069845c3195ed5c2a58fcbba01c2.svg?invert_in_darkmode&sanitize=true" align=middle width=228.67065705pt height=18.7598829pt/></p>
+
+After applying the **Activation Function**, we have:
+<p align="center"><img src="/tex/2b20f5364751f531991e546a5019665c.svg?invert_in_darkmode&sanitize=true" align=middle width=369.32456714999995pt height=47.671326449999995pt/></p>
+
+<p align="center"><img src="/tex/a190bde562fd7776eeec3c2577f4a093.svg?invert_in_darkmode&sanitize=true" align=middle width=187.3791282pt height=16.438356pt/></p>
+
+Notice, from vectorial calculus that<img src="/tex/1ed5a3d62c832e552de9c6a97fd94368.svg?invert_in_darkmode&sanitize=true" align=middle width=4.5662248499999905pt height=14.15524440000002pt/><img src="/tex/241717213edf9b4dd11462504914382e.svg?invert_in_darkmode&sanitize=true" align=middle width=230.7953439pt height=108.81435509999997pt/><img src="/tex/7260bca04aa8e5283d80f1e2160799a3.svg?invert_in_darkmode&sanitize=true" align=middle width=316.75883415pt height=45.84475499999998pt/><img src="/tex/9523173ce7b9aa2f601b8be906e63841.svg?invert_in_darkmode&sanitize=true" align=middle width=173.33356755pt height=424.6679382pt/><img src="/tex/e2b487b35b0841cd839c4729265b2e0c.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/1b88d9f1907346c74b3277745942a9ca.svg?invert_in_darkmode&sanitize=true" align=middle width=240.15965160000002pt height=47.67123239999998pt/><img src="/tex/51709c221bb606c7f0a6193f462db8dd.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/5abd07422787ee57bbbe3353648bf2f3.svg?invert_in_darkmode&sanitize=true" align=middle width=334.37314185pt height=31.141535699999984pt/><img src="/tex/51709c221bb606c7f0a6193f462db8dd.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/d17953d8f34eb079ec0d4d6f12320985.svg?invert_in_darkmode&sanitize=true" align=middle width=285.63444525pt height=31.141535699999984pt/>$
+
+## Implementation
 
