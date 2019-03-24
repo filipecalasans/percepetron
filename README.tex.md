@@ -61,11 +61,11 @@ Let's make a hypothetical experiment. Let's say we have a data set with 10 examp
 
 $$Xi = <x1, x2, x3, ...., Xn, Y> :(5)$$
 
-where, $<x1, x2, x3, ...., Xn>$ is the input and *Y* is the correct class for the example. Now, we randomly generate a set of initial weights $<w1, w2, w3, ..., wn>$ and biases $<b1, b2, b3,..., bn>$. We should be able to describe how far we are from classifying the examples correctly, so we can take the best action to improve our classifier. That is the point that **Cost Function** comes in handy. One very popular **Cost Function** is the quadratic error difference, given by:
+where, $<x1, x2, x3, ...., Xn>$ is the input and *Y* is the correct class for the example. Now, we randomly generate a set of initial weights $<w1, w2, w3, ..., wn>$ and bias $<b>$. We should be able to describe how far we are from classifying the examples correctly, so we can take the best action to improve our classifier. That is the point that **Cost Function** comes in handy. One very popular **Cost Function** is the quadratic error difference, given by:
 
 $$C(w, b) = \|Y -Ŷ\|^2 :(6)$$
 
-This formula tells that for a given set of wights and biases $(w,b)$, the cost is the square of the distance between the right classification $Y$ and the estimated classification $Ŷ$. On 1-dimensional classifiers, such as *Perceptron*, the distance is simply the difference; On N-dimensional problems the cost is the module of the vectorial distance between the two vectors.
+This formula tells that for a given set of wights and biases $(w,b)$, the cost is the square of the distance between the right classification $Y$ and the estimated classification $Ŷ$. On 1-dimensional classifiers, such as *Perceptron*, the distance is simply the squared difference; On N-dimensional problems the cost is the squared module of the vectorial distance between the vector $Y$ and $Ŷ$.
 
 In this context, SGD is a method to update $(w,b)$ interactively towards one of the minimum of the function *$C(w,b)$ hopping that it will turn our classifier better, or it will converge towards a minimum. SGD defines the following two update equations, also called in this article learning equations:
 
