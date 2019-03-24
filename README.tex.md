@@ -236,11 +236,11 @@ $$
 \end{bmatrix}
 =
 \begin{bmatrix}
-\sigma'_{w1}(z) \\
+\sigma'_{w1}(a) \\
 \\
-\sigma'_{w2}(z) \\
+\sigma'_{w2}(a) \\
 \\
-\sigma'_{w3}(z)
+\sigma'_{w3}(a)
 \end{bmatrix}
 $$
 
@@ -263,11 +263,11 @@ w_3(t) \\
 y1 - ŷ1
 \end{bmatrix}
 \begin{bmatrix}
-\sigma'_{w1}(z) \\
+\sigma'_{w1}(a) \\
 \\
-\sigma'_{w2}(z) \\
+\sigma'_{w2}(a) \\
 \\
-\sigma'_{w3}(z)
+\sigma'_{w3}(a)
 \end{bmatrix}
 $$
 
