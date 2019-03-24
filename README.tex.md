@@ -142,7 +142,7 @@ $$b(t+1) = b(t) + 2\eta[y-\sigma(b)] (23)$$
 
 ## Choosing the Activation Function
 
-We are interested on finding an ** Activation Function ** that looks like a step function, but at the same time is continuous and differentiable in $-\infty <x <+\infty$. Sigmoid, also called logistic function, is one of the widely used functions due to having these properties.
+We are interested on finding an **Activation Function** that looks like a step function, but at the same time is continuous and differentiable in $-\infty <x <+\infty$. Sigmoid, also called logistic function, is one of the widely used functions due to having these properties.
 
 Sigmoid function is given by:
 
@@ -150,15 +150,15 @@ $$\sigma(x) = \frac{1}{e^-x} : (24)$$
 
 With the following derivative:
 
-$$\sigma(x) = \sigma(x)(1 - \sigma(x)) : (25)$$
+$$\sigma'(x) = \sigma(x)(1 - \sigma(x)) : (25)$$
 
 NOTE: The sigmoid is easily differentiable using **Chain Rule**, this is also one of the reasons for its popularity. You can google it if you are curious how to calculate the derivative.
 
 ## Notes on Matrix Representation
 
-The aspect that I had difficult the most when I tried to implement NNs in Python was to translate the equations to matrix representation. Sure, we could iterate over each index and calculate one weight per iteration. However, we would be limiting ourself. The main reason we should use matrix representation is because the numeric libraries we use are optimized for matrix representation, and they are that way for one reason. They try to take advantage of hardware optimization implemented to operate over matrices.
+The aspect that I had difficult the most when I tried to implement NNs in Python was to translate the equations to matrix representation. Sure, we could iterate over each index and calculate one weight per iteration. However, we would be limiting ourself. The main reason we should use matrix representation is because the numeric libraries are optimized for matrix representation. Moreover, they try to take advantage of hardware optimization when possible.
 
-Let's re-write the equations we have learned so far to matrix representation. First we will work with a particular example (3 inputs, 1 output) so you can visualize the dimensions, then we will write the algebrc notation generalizing this particular case.
+Let's re-write the equations we have learned so far on matrix representation. First we will work with a particular example (3 inputs, 1 output) so you can visualize the dimensions, then we will write the algebraic notation generalizing this particular case.
 
 $$
 X = \begin{bmatrix}
@@ -212,7 +212,7 @@ b \\
 $$
 
 $$
-Algebric: A = W^TX + B :(28)
+Algebraic: A = W^TX + B :(28)
 $$
 
 After applying the **Activation Function**, we have:
@@ -226,7 +226,7 @@ Z =
 $$
 
 $$
-Algebric: Z = \sigma(A) :(30)
+Algebraic: Z = \sigma(A) :(30)
 $$
 
 Notice, from vectorial calculus that$:
@@ -301,11 +301,11 @@ y1 - ŷ1
 $$
 
 $$
-Algebric: W(t+1) = W(t) + 2\eta(Y-Ŷ)\sigma'(A)
+Algebraic: W(t+1) = W(t) + 2\eta(Y-Ŷ)\sigma'(A)
 $$
 
 $$
-Algebric: B(t+1) = B(t) + 2\eta(Y-Ŷ)
+Algebraic: B(t+1) = B(t) + 2\eta(Y-Ŷ)
 $$
 
 ## Implementation
