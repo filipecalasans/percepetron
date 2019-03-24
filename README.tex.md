@@ -18,7 +18,7 @@ Hope this document can help you on your learning journey. Good Luck !
 
 Mathematically speaking, this neuron produces the following output:
 
-$$out(t) = \tau( \sum_{i=1}^{n} w_{i}*x_{i} + b )$$
+$$out(t) = \sigma( \sum_{i=1}^{n} w_{i}*x_{i} + b )$$
 
 In other words, the output of a neuron is given by a linear combination of its inputs:
 
@@ -30,7 +30,7 @@ $$a = \sum_{i=1}^{n} w_{i}*x_{i} + b :(2)$$
 
 Then, the final output is calculated passing $a$ as argument of the function denominated **Activation Function**:
 
-$$z = out(t) = \tau(a) :(3)$$
+$$z = out(t) = \sigma(a) :(3)$$
 
 If you remind of Linear Algebra, the equation *(2)* looks like the hyperplane equation $(4)$. Indeed it is a hyperplane. Moreover, the equation give us a notion of how far the data vector $X<x1,x2,x3,...,x_n>$ is from the hyperplane:
 
@@ -79,19 +79,19 @@ These two equations tell that every interaction of the algorithm we must update 
 
 Let's apply what ye have discussed so far to formulate the *Perceptron*.
 
-$$(9) Estimated Output: Ŷ = \tau(a) = \tau( \sum_{i=1}^{n} w_{i}*x_{i} + b )$$
+$$(9): Estimated Output: Ŷ = \sigma(a) = \sigma( \sum_{i=1}^{n} w_{i}*x_{i} + b )$$
 
-$$(10) Cost Function: C(w,b) = \|Y - Ŷ\|^2$$
+$$(10): Cost Function: C(w,b) = \|Y - Ŷ\|^2$$
 
 *Perceptrons* have uni-dimensional output, so we are going to skip the vectorial notation. Re-wrinting it, we have:
 
-$$(11) Cost Function: C(w,b) = (y-ŷ)^2 = (y-\tau(a))^2$$
+$$(11): Cost Function: C(w,b) = (y-ŷ)^2 = (y-\sigma(a))^2$$
 
 Learning Equations:
 
 $$w_i(t+1) = w_i(t) - \eta\frac{\partial C}{\partial w_i} :(12)$$
 
-$$b_i(t+1) = b_i(t) - \eta\frac{\partial C}{\partial b_i} :(13)$$
+$$b(t+1) = b(t) - \eta\frac{\partial C}{\partial b} :(13)$$
 
 The key part to understand the next step is to remember the **Chain Rule Derivative**, which is given by:
 
@@ -103,39 +103,210 @@ $$w_i(t+1) = w_i(t) - \eta\frac{\partial }{\partial w_i}[(y-ŷ)^2] :(14)$$
 
 Let's call the derivative of $D$:
 
-$$D = \frac{\partial }{\partial w_i}[(y-ŷ)^2)] = \frac{\partial }{\partial w_i}[(y-\tau(w))^2] :(15)$$
+$$D = \frac{\partial }{\partial w_i}[(y-ŷ)^2)] = \frac{\partial }{\partial w_i}[(y-\sigma(w))^2] :(15)$$
 
 If you notice, we have written $D$ on a way that it would be evident the **Chain Rule**.
 
+Let's call $y-\sigma(w) = g(w)$.
+
 Applying the **Chain Rule**, we have:
 
-$$D = \frac{\partial}{\partial \tau(w)}[(y-\tau(w))^2]\frac{\partial}{\partial w_i}[y - \tau(w)] = 2\tau(w)\tau'(w) :(16)$$
+$$D = \frac{\partial g(w)^2}{\partial g(w)}\frac{\partial g(w)}{\partial w_i} = \frac{\partial g(w)^2}{\partial g(w)}\frac{\partial}{\partial w_i}[y - \sigma(w)] = -2g(w)\sigma'(w) = -2(y-\sigma(w))\sigma'(w) :(16)$$
 
-Notice that $y$ is constant, therefore its derivatives regarding $w_i$, and $\tau(w_i)$ are zero.
+Notice that $y$ is constant, therefore its derivatives regarding $w_i$, and $\sigma(w_i)$ are zero.
 
 Finally, we can update the Learning Equation $(17)$ to:
 
-$$w_i(t+1) = w_i(t) - 2\eta\tau(w)\tau'(w)] :(18)$$
+$$w_i(t+1) = w_i(t) + 2\eta[y-\sigma(w)]\sigma'(w) :(18)$$
 
-Do you remember from the SGD section, that SGD required a differentiable objective function? Now, you can understand why. As you must have noticed, SGD depends on both **Cost Function** and **Activation Function** derivatives. That is
-the reason why we do not utilize the step function in practice. Since it has a singularity on $x=0$ we have now way to calculate the derivatives we need on several points of the space.
+Do you remember that SGD requires a differentiable objective function? Now, you can understand why. As you must have noticed, SGD depends on both **Cost Function** and **Activation Function** derivatives. That is
+the reason why we do not utilize the step function as **Cost Function**. Since it has a singularity on $x=0$ we have no way to calculate the derivatives on several points of the space.
 
-Applying the same concepts, we can demonstrate that the learning equation for $b_i$ is:
+Applying the same approach, we can deduce the learning equation for $b$.
 
-$$D = \frac{\partial}{\partial \tau(b_i)}[(y-\tau(b_i))^2]\frac{\partial}{\partial b_i}[y - \tau(b_i)] = 2\tau(b_i)\tau'(b_i) :(19)$$
+$$D = \frac{\partial g(b)^2}{\partial g(b)}\frac{\partial g(b)}{\partial b} = \frac{\partial g(b)^2}{\partial g(b)}\frac{\partial}{\partial b}[y - \sigma(b)] = -2g(b)\sigma'(w) = -2[y-\sigma(b)]\sigma'(b) :(16)$$
 
 Remember:
 
-$$\tau'(b) = \tau'( \sum_{i=1}^{n} w_{i}*x_{i} + b )= 1 :(20)$$
+$$\sigma'(b) = \frac{\partial}{\partial b}[\sigma( \sum_{i=1}^{n} w_{i}*x_{i} + b )] = 1 :(20)$$
 
 Therefore,
 
-$$b_i(t+1) = b_i(t) - 2\eta\tau(a)] (21)$$
+$$b_i(t+1) = b_i(t) + 2\eta[y-\sigma(b)] (21)$$
 
-We now have the two Learning Equations that we can use to implement the algorithm:
+We have now the two Learning Equations that we can use to implement the algorithm:
 
-$$w_i(t+1) = w_i(t) - 2\eta\tau(a)\tau'(a)] :(22)$$
+$$w_i(t+1) = w_i(t) + 2\eta\sigma(a)\sigma'(a)] :(22)$$
 
-$$b_i(t+1) = b_i(t) - 2\eta\tau(a)] (23)$$
+$$b(t+1) = b(t) + 2\eta[y-\sigma(b)] (23)$$
 
+## Choosing the Activation Function
+
+We are interested on finding an ** Activation Function ** that looks like a step function, but at the same time is continuous and differentiable in $-\infty <x <+\infty$. Sigmoid, also called logistic function, is one of the widely used functions due to having these properties.
+
+Sigmoid function is given by:
+
+$$\sigma(x) = \frac{1}{e^-x} : (24)$$
+
+With the following derivative:
+
+$$\sigma(x) = \sigma(x)(1 - \sigma(x)) : (25)$$
+
+NOTE: The sigmoid is easily differentiable using **Chain Rule**, this is also one of the reasons for its popularity. You can google it if you are curious how to calculate the derivative.
+
+## Notes on Matrix Representation
+
+The aspect that I had difficult the most when I tried to implement NNs in Python was to translate the equations to matrix representation. Sure, we could iterate over each index and calculate one weight per iteration. However, we would be limiting ourself. The main reason we should use matrix representation is because the numeric libraries we use are optimized for matrix representation, and they are that way for one reason. They try to take advantage of hardware optimization implemented to operate over matrices.
+
+Let's re-write the equations we have learned so far to matrix representation. First we will work with a particular example (3 inputs, 1 output) so you can visualize the dimensions, then we will write the algebrc notation generalizing this particular case.
+
+$$
+X = \begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3 \\
+\end{bmatrix}
+,
+W =\begin{bmatrix}
+w_1 \\
+w_2 \\
+w_3 \\
+\end{bmatrix}
+,
+B =\begin{bmatrix}
+b \\
+\end{bmatrix}
+,
+A =\begin{bmatrix}
+a_1 \\
+\end{bmatrix}
+,
+Ŷ =\begin{bmatrix}
+y_1 \\
+\end{bmatrix}
+
+:(26)
+$$
+
+Output $A$ of the Neuron is given by:
+
+$$
+\begin{bmatrix}
+a_1 \\
+\end{bmatrix}
+= 
+\begin{bmatrix}
+w_1 & w_2 &w_3
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3 \\
+\end{bmatrix}
++ 
+\begin{bmatrix}
+b \\
+\end{bmatrix}
+
+:(27)
+$$
+
+$$
+Algebric: A = W^TX + B :(28)
+$$
+
+After applying the **Activation Function**, we have:
+$$
+Z = 
+\begin{bmatrix}
+\sigma(a1) \\
+\end{bmatrix}
+
+:(29)
+$$
+
+$$
+Algebric: Z = \sigma(A) :(30)
+$$
+
+Notice, from vectorial calculus that$:
+
+$$
+\frac{\partial Z}{\partial w_i} = 
+\begin{bmatrix}
+\frac{\partial Z}{\partial w1} \\
+\\
+\frac{\partial Z}{\partial w2} \\
+\\
+\frac{\partial Z}{\partial w3}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\sigma'_{w1}(z) \\
+\\
+\sigma'_{w2}(z) \\
+\\
+\sigma'_{w3}(z)
+\end{bmatrix}
+:(31)
+$$
+
+The Learning Equations can be re-written as:
+
+$$
+\begin{bmatrix}
+w_1(t+1) \\
+w_2(t+1) \\
+w_3(t+1) \\
+\end{bmatrix}
+
+=
+
+\begin{bmatrix}
+w_1(t) \\
+w_2(t) \\
+w_3(t) \\
+\end{bmatrix}
+
++ 2\eta
+\begin{bmatrix}
+y1 - ŷ1
+\end{bmatrix}
+\begin{bmatrix}
+\sigma'_{w1}(z) \\
+\\
+\sigma'_{w2}(z) \\
+\\
+\sigma'_{w3}(z)
+\end{bmatrix}
+
+:(32)
+$$
+
+
+$$
+\begin{bmatrix}
+b(t+1) \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+b(t) \\
+\end{bmatrix}
++ 2\eta
+\begin{bmatrix}
+y1 - ŷ1
+\end{bmatrix}
+
+:(33)
+$$
+
+$$
+Algebric: W(t+1) = W(t) + 2\eta(Y-Ŷ)\sigma'(A)
+$$
+
+$$
+Algebric: B(t+1) = B(t) + 2\eta(Y-Ŷ)
+$$
+
+## Implementation
 
