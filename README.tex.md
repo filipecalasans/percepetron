@@ -124,8 +124,9 @@ $b_i(t+1) = b_i(t) - \eta\frac{\partial C}{\partial b_i} :(11)$
 The key part to understand the next step is to remember the **Chain Rule Derivative**, which is given by:
 
 <!-- \begin{equation*} -->
-${\frac{df(g(x))}{dx}} = {\frac{df(x)}{dg(x)}} {\frac{dg(x)}{dx}}$
+
 <!-- \end{equation*} -->
+${\frac{df(g(x))}{dx}} = {\frac{df(x)}{dg(x)}} {\frac{dg(x)}{dx}}$
 
 Applying $(9)$ in $(10)$, we have:
 
