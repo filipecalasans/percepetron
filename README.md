@@ -173,7 +173,67 @@ After applying the **Activation Function**, we have:
 
 <p align="center"><img src="/tex/a190bde562fd7776eeec3c2577f4a093.svg?invert_in_darkmode&sanitize=true" align=middle width=187.3791282pt height=16.438356pt/></p>
 
-Notice, from vectorial calculus that<img src="/tex/1ed5a3d62c832e552de9c6a97fd94368.svg?invert_in_darkmode&sanitize=true" align=middle width=4.5662248499999905pt height=14.15524440000002pt/><img src="/tex/241717213edf9b4dd11462504914382e.svg?invert_in_darkmode&sanitize=true" align=middle width=230.7953439pt height=108.81435509999997pt/><img src="/tex/7260bca04aa8e5283d80f1e2160799a3.svg?invert_in_darkmode&sanitize=true" align=middle width=316.75883415pt height=45.84475499999998pt/><img src="/tex/9523173ce7b9aa2f601b8be906e63841.svg?invert_in_darkmode&sanitize=true" align=middle width=173.33356755pt height=424.6679382pt/><img src="/tex/e2b487b35b0841cd839c4729265b2e0c.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/1b88d9f1907346c74b3277745942a9ca.svg?invert_in_darkmode&sanitize=true" align=middle width=240.15965160000002pt height=47.67123239999998pt/><img src="/tex/51709c221bb606c7f0a6193f462db8dd.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/5abd07422787ee57bbbe3353648bf2f3.svg?invert_in_darkmode&sanitize=true" align=middle width=334.37314185pt height=31.141535699999984pt/><img src="/tex/51709c221bb606c7f0a6193f462db8dd.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/d17953d8f34eb079ec0d4d6f12320985.svg?invert_in_darkmode&sanitize=true" align=middle width=285.63444525pt height=31.141535699999984pt/>$
+Notice, from vectorial calculus that<img src="/tex/1ed5a3d62c832e552de9c6a97fd94368.svg?invert_in_darkmode&sanitize=true" align=middle width=4.5662248499999905pt height=14.15524440000002pt/><img src="/tex/241717213edf9b4dd11462504914382e.svg?invert_in_darkmode&sanitize=true" align=middle width=230.7953439pt height=108.81435509999997pt/><img src="/tex/7260bca04aa8e5283d80f1e2160799a3.svg?invert_in_darkmode&sanitize=true" align=middle width=316.75883415pt height=45.84475499999998pt/><img src="/tex/9523173ce7b9aa2f601b8be906e63841.svg?invert_in_darkmode&sanitize=true" align=middle width=173.33356755pt height=424.6679382pt/><img src="/tex/e2b487b35b0841cd839c4729265b2e0c.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/1b88d9f1907346c74b3277745942a9ca.svg?invert_in_darkmode&sanitize=true" align=middle width=240.15965160000002pt height=47.67123239999998pt/><img src="/tex/51709c221bb606c7f0a6193f462db8dd.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/5abd07422787ee57bbbe3353648bf2f3.svg?invert_in_darkmode&sanitize=true" align=middle width=334.37314185pt height=31.141535699999984pt/><img src="/tex/51709c221bb606c7f0a6193f462db8dd.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=14.15524440000002pt/><img src="/tex/d17953d8f34eb079ec0d4d6f12320985.svg?invert_in_darkmode&sanitize=true" align=middle width=285.63444525pt height=31.141535699999984pt/><img src="/tex/f7210cb22848ba23de46b8b2f69539f6.svg?invert_in_darkmode&sanitize=true" align=middle width=1745.1198203999998pt height=407.68950419999993pt/>[-1,1]<img src="/tex/0b8d47d6dc0885378abe69397b83f39d.svg?invert_in_darkmode&sanitize=true" align=middle width=648.8419607999999pt height=22.831056599999986pt/>W<img src="/tex/863df2b8dcb93d7bf8d96edf1d0184ee.svg?invert_in_darkmode&sanitize=true" align=middle width=69.24516719999998pt height=22.831056599999986pt/>W=<w1, w2, b><img src="/tex/f1f05ab33e9bd337f5a8f67fd3e22fc0.svg?invert_in_darkmode&sanitize=true" align=middle width=700.50259125pt height=598.1735232000001pt/>dataset=<x1, x2, y>$ and updates the weights and bias. This is done repeatedly until the
+minimum error or a maximum number of iterations is reached. We monitor the square error to know if the training is working.
 
-## Implementation
+```py
+def train(self, dataset):
+    
+    print("Training ...")
 
+    # dataset = [ [x1_1, x1_2, ..., x1_n, y1],
+    #             [x2_1, x2_2, ..., x2_n, y2], 
+    #             ...
+    n = dataset.shape[0]
+    iteration = 0
+
+    while True:
+      iteration += 1
+      self.sqerror = 0.0
+      np.apply_along_axis(self.apply_learning_equation, axis=1, arr=dataset)
+      if (self.sqerror/n) < self.threshold:
+        break
+      if iteration > 50000:
+         break
+```
+
+## Example
+
+We are going to validate the implementation training the Perceptron to learn the logic *OR*. The examples are provided in the file **OR.dat**.
+
+```py
+def train_and_test_and(filename):
+
+  dataset = np.loadtxt(open(filename, "rb"), delimiter=" ")
+  
+  print("DataSet: {}".format(dataset))
+  dimension = dataset.shape[1]
+
+  p = Percepetron(dimension)
+  p.train(dataset)
+
+  a = 0
+  b = 0
+  print("{} OR {}: {}".format(a,b, p.test(np.array([a, b]))))
+
+  a = 0
+  b = 1
+  print("{} OR {}: {}".format(a,b, p.test(np.array([a, b]))))
+
+  a = 1
+  b = 0
+  print("{} OR {}: {}".format(a,b, p.test(np.array([a, b]))))
+
+  a = 1
+  b = 1
+  print("{} OR {}: {}".format(a,b, p.test(np.array([a, b]))))
+
+if __name__ == "__main__":
+  train_and_test_and("OR.dat")
+```
+
+You can try to train using different datasets as a challenge. We provide the logic *AND* in the file **AND.dat**. Bare in mind that the problem must be linearly separable. 
+
+**Challenge:** Try to train the *Perceptron* to learn the logic *XOR* and verify if the dataset is linearly separable.
+
+**Challenge 2:** Tune the parameters *Activation Function* and *eta*, so the training converges faster. 
