@@ -38,7 +38,7 @@ $$\sum_{i=1}^{n} w_{i}*x_{i} + b = 0 :(4)$$
 
 Using *Perceptron*, we can create a classifier that given an example characterized by the input $X<x1,x2,x3,...,x_n>$, it returns if the example is **Class** **A = 0** or **B = 1**, using as decisive factor how far the point is from the hyperplane. If you noticed, this is the role of the **Activation Function** in the equation $(3)$. In the image,you can notice that the function used is a step function, but we'll see later there are better **Activation Functions** that we can use.
 
-The step function is given by $f(a) = 0, if a < threshold, f(x)=1, if a > threashold$. This is how we would classify our examples mathematically.
+The step function is given by $f(a) = 0, if a < threshold, f(a)=1, if a > threashold$. This is how we would classify our examples mathematically.
 
 ### Now, you should be wondering: How does perceptron "learns" the best hyperplane? 
 
