@@ -4,20 +4,13 @@ Our ultimate goal is to mathematically formulate a MLP, however there is a simpl
 
 # Preamble 
 
-You may be asking yourself: why do we need another MLP explanation in the internet? This repository  provides my thought process after reading several materials when I tried to implement a MLP by myself. At the time, I could understand and implement it only after a lot of reading, and trial and error. So, as I felt the necessity to read different points of views and be exposed to different ways of explaining the same topic, I think others may face the same situation.
+You may be asking yourself: why do we need another Perceptron/MLP explanation in the internet? This repository  provides my thought process after reading several materials when I tried to implement a MLP by myself. At the time, I was able to understand and implement it only after a lot of reading, and trial and error. So, as I felt the necessity to be exposed to different ways of explaining the same topic, I think others may face the same situation.
 
 Hope this document can help you on your learning journey. Good Luck !
 
 # Mathematical Formulation
 
-MLPs are composed by mathematical neurons and its synapses, in this case called weights. Neurons are arranged in layers, and connected between them through weights. The simplest MLP you can build is composed of three layers: Input, Hidden and Output layers. In the classical topology each neuron of a given layer is fully connected with the neurons of the next layer. 
-
-## *Perceptron*
-
-Our ultimate goal is to mathematically formulate  a MLP, however there is a simple type of neural network that will help you to build the foundation to understand MLPs. If you think you arready comfortable with this concept you might want to skip to [MLP](https://github.com/filipecalasans/mlp)
-
-*Perceptron* is single neuron NN as shown in picture bellow.  
-
+*Perceptron* is single neuron Neural Network(NN) as shown in the picture bellow.  
 The picture bellow shows a *Perceptron* and its different mathematical components:
 
  <p align="center"> 
