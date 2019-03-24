@@ -190,11 +190,11 @@ The Learning Equations can be re-written as:
 
 ## Implementation
 
-We are going to use the library Numpy to implement the matrix operation in Python.
+We are going to use the library *Numpy* to implement matrix operation in *Python*.
 
 ### Implementation details
 
-We are going to use a slightly different activation function, in order to our example to converge.
+We are going also to use a slightly different activation function, in order to our example to converge.
 
 ```py
 def f_sigmoid(x):
@@ -267,8 +267,8 @@ class Percepetron:
     self.w[-1] += (2.0*self.eta*error)
 ```
 
-The function *apply_learning_equation* receives as argument an example from the dataset as <img src="/tex/3f57ca682c1bb77e982d41dc25f129e4.svg?invert_in_darkmode&sanitize=true" align=middle width=163.71004649999998pt height=22.831056599999986pt/> and updates the weights and bias. This is done repeatedly until the
-minimum error or a maximum number of iterations is reached. We monitor the square error to know if the training is working.
+The function *apply_learning_equation* receives as argument an example from the dataset, where <img src="/tex/3f57ca682c1bb77e982d41dc25f129e4.svg?invert_in_darkmode&sanitize=true" align=middle width=163.71004649999998pt height=22.831056599999986pt/>. Next we update the weights and bias. This step is repeated until the
+minimum error or the maximum number of iterations is reached. We also keep monitoring the square error to know if the training is converging.
 
 ```py
 def train(self, dataset):
@@ -293,7 +293,7 @@ def train(self, dataset):
 
 ## Example
 
-We are going to validate the implementation training the Perceptron to learn the logic *OR*. The examples are provided in the file **OR.dat**.
+We are going to validate our implementation training the Perceptron to learn the logic *OR*. The examples are provided in the file **OR.dat**.
 
 ```py
 def train_and_test_and(filename):
@@ -326,8 +326,8 @@ if __name__ == "__main__":
   train_and_test_and("OR.dat")
 ```
 
-You can try to train using different datasets as a challenge. We provide the logic *AND* in the file **AND.dat**. Bare in mind that the problem must be linearly separable. 
+You can try to train using different datasets as a challenge. We provide the logic *AND* in the file **AND.dat**. But, bear in mind that the dataset must be linearly separable. 
 
-**Challenge:** Try to train the *Perceptron* to learn the logic *XOR* and verify if the dataset is linearly separable.
+**Challenge 1:** Try to train the *Perceptron* to learn the logic *XOR* and verify if the dataset is linearly separable.
 
-**Challenge 2:** Tune the parameters *Activation Function* and *eta*, so the training converges faster. 
+**Challenge 2:** Tune the parameters in the *Activation Function* and *eta*, so the training converges faster.
