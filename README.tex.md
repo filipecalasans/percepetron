@@ -247,20 +247,17 @@ $$
 The Learning Equations can be re-written as:
 
 $$
-(32): \begin{bmatrix}
+\begin{bmatrix}
 w_1(t+1) \\
 w_2(t+1) \\
 w_3(t+1) \\
 \end{bmatrix}
-
 =
-
 \begin{bmatrix}
 w_1(t) \\
 w_2(t) \\
 w_3(t) \\
 \end{bmatrix}
-
 + 2\eta
 \begin{bmatrix}
 y1 - ŷ1
