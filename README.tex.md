@@ -136,9 +136,9 @@ $$b_i(t+1) = b_i(t) + 2\eta[y-\sigma(b)] (21)$$
 
 We have now the two Learning Equations that we can use to implement the algorithm:
 
-$$w_i(t+1) = w_i(t) + 2\eta\sigma(a)\sigma'(a)] :(22)$$
+$$w_i(t+1) = w_i(t) + 2\eta[y-\sigma(a)]\sigma'(a)] :(22)$$
 
-$$b(t+1) = b(t) + 2\eta[y-\sigma(b)] (23)$$
+$$b(t+1) = b(t) + 2\eta[y-\sigma(a)] (23)$$
 
 ## Choosing the Activation Function
 
