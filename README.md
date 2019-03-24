@@ -38,7 +38,7 @@ If you remind of Linear Algebra, the equation *(2)* looks like the hyperplane eq
 
 Using *Perceptron*, we can create a classifier that given an example characterized by the input <img src="/tex/0fcf433dbe8b273336cdb1ea0866b4ed.svg?invert_in_darkmode&sanitize=true" align=middle width=168.2855526pt height=22.465723500000017pt/>, it returns if the example is **Class** **A = 0** or **B = 1**, using as decisive factor how far the point is from the hyperplane. If you noticed, this is the role of the **Activation Function** in the equation <img src="/tex/cf330257519e06f13c2ecab5e25c6d2a.svg?invert_in_darkmode&sanitize=true" align=middle width=21.00464354999999pt height=24.65753399999998pt/>. In the image,you can notice that the function used is a step function, but we'll see later there are better **Activation Functions** that we can use.
 
-The step function is given by <img src="/tex/7990677e990316a3b2f1ac2952c73e75.svg?invert_in_darkmode&sanitize=true" align=middle width=386.0716827pt height=24.65753399999998pt/>. This is how we would classify our examples mathematically.
+The step function is given by <img src="/tex/c9d57b49d0a3f8e431d9b620ec8eedee.svg?invert_in_darkmode&sanitize=true" align=middle width=385.3658489999999pt height=24.65753399999998pt/>. This is how we would classify our examples mathematically.
 
 ### Now, you should be wondering: How does perceptron "learns" the best hyperplane? 
 
