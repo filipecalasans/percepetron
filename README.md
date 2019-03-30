@@ -136,7 +136,7 @@ Therefore,
 
 We have now the two Learning Equations that we can use to implement the algorithm:
 
-<p align="center"><img src="/tex/f381ca3599aca557a097ab5b30deecf0.svg?invert_in_darkmode&sanitize=true" align=middle width=312.1041957pt height=17.2895712pt/></p>
+<p align="center"><img src="/tex/2bc6458389106f327213528e7db72b4e.svg?invert_in_darkmode&sanitize=true" align=middle width=307.53797249999997pt height=17.2895712pt/></p>
 
 <p align="center"><img src="/tex/6a2ea19a0583c2dc5ffd69c39b4e5334.svg?invert_in_darkmode&sanitize=true" align=middle width=237.39719024999997pt height=16.438356pt/></p>
 
@@ -158,7 +158,7 @@ NOTE: The sigmoid is easily differentiable using **Chain Rule**, this is also on
 
 The aspect that I had difficult the most when I tried to implement NNs in Python was to translate the equations to matrix representation. Sure, we could iterate over each index and calculate one weight per iteration. However, we would be limiting ourself. The main reason we should use matrix representation is because the numeric libraries are optimized for matrix representation. Moreover, they try to take advantage of hardware optimization when possible.
 
-Let's re-write the equations we have learned so far on matrix representation. First we will work with a particular example <img src="/tex/618665d8d764eca9c578a2a175f0061b.svg?invert_in_darkmode&sanitize=true" align=middle width=130.31361255pt height=24.65753399999998pt/>, so you can visualize the dimensions, then we will write the algebraic notation generalizing this particular case.
+Let's re-write the equations we have learned so far using matrix representation. First, we will work with a particular example <img src="/tex/618665d8d764eca9c578a2a175f0061b.svg?invert_in_darkmode&sanitize=true" align=middle width=130.31361255pt height=24.65753399999998pt/>, so you can visualize the dimensions, then we will write the algebraic notation generalizing this particular case.
 
 <p align="center"><img src="/tex/13461f75d11da71cde0726b5023d0f23.svg?invert_in_darkmode&sanitize=true" align=middle width=380.70228405pt height=59.1786591pt/></p>
 
