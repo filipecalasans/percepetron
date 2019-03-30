@@ -136,7 +136,7 @@ $$b_i(t+1) = b_i(t) + 2\eta[y-\sigma(b)] (21)$$
 
 We have now the two Learning Equations that we can use to implement the algorithm:
 
-$$w_i(t+1) = w_i(t) + 2\eta[y-\sigma(a)]\sigma'(a)] :(22)$$
+$$w_i(t+1) = w_i(t) + 2\eta[y-\sigma(a)]\sigma'(a) :(22)$$
 
 $$b(t+1) = b(t) + 2\eta[y-\sigma(a)] (23)$$
 
@@ -158,7 +158,7 @@ NOTE: The sigmoid is easily differentiable using **Chain Rule**, this is also on
 
 The aspect that I had difficult the most when I tried to implement NNs in Python was to translate the equations to matrix representation. Sure, we could iterate over each index and calculate one weight per iteration. However, we would be limiting ourself. The main reason we should use matrix representation is because the numeric libraries are optimized for matrix representation. Moreover, they try to take advantage of hardware optimization when possible.
 
-Let's re-write the equations we have learned so far on matrix representation. First we will work with a particular example $(3 inputs, 1 output)$, so you can visualize the dimensions, then we will write the algebraic notation generalizing this particular case.
+Let's re-write the equations we have learned so far using matrix representation. First, we will work with a particular example $(3 inputs, 1 output)$, so you can visualize the dimensions, then we will write the algebraic notation generalizing this particular case.
 
 $$
 X = \begin{bmatrix}
