@@ -136,9 +136,9 @@ Therefore,
 
 We have now the two Learning Equations that we can use to implement the algorithm:
 
-<p align="center"><img src="/tex/f71c2c8106f9c998eb2d64b7fe989610.svg?invert_in_darkmode&sanitize=true" align=middle width=274.23135134999995pt height=17.2895712pt/></p>
+<p align="center"><img src="/tex/f381ca3599aca557a097ab5b30deecf0.svg?invert_in_darkmode&sanitize=true" align=middle width=312.1041957pt height=17.2895712pt/></p>
 
-<p align="center"><img src="/tex/db525abf61aae006e3f6b6cded0dce67.svg?invert_in_darkmode&sanitize=true" align=middle width=235.76283224999997pt height=16.438356pt/></p>
+<p align="center"><img src="/tex/6a2ea19a0583c2dc5ffd69c39b4e5334.svg?invert_in_darkmode&sanitize=true" align=middle width=237.39719024999997pt height=16.438356pt/></p>
 
 ## Choosing the Activation Function
 
