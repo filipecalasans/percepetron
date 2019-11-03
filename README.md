@@ -10,7 +10,7 @@ Hope this document can help you on your learning journey. Good Luck !
 
 # Mathematical Formulation
 
-*Perceptron* is single neuron Neural Network(NN) as shown in the picture bellow.
+*Perceptron* is a single neuron Neural Network(NN) as shown in the picture bellow.
 
  <p align="center"> 
     <img src="doc/perceptron.png" alt="Perceptron">
